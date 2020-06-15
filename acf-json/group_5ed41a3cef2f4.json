@@ -1,0 +1,273 @@
+{
+    "key": "group_5ed41a3cef2f4",
+    "title": "Header",
+    "fields": [
+        {
+            "key": "field_5ed41a3d24d89",
+            "label": "Header Layouts",
+            "name": "header_layouts",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "layout_5d9c4e2ce36cf": {
+                    "key": "layout_5d9c4e2ce36cf",
+                    "name": "logo_left",
+                    "label": "Logo Left - Menu Right",
+                    "display": "table",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ed41ae38820f",
+                            "label": "Logo",
+                            "name": "logo",
+                            "type": "image",
+                            "instructions": "Insert your logo here, we recommend SVG, PNG or JPG",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "post-thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_5ed41c4688210",
+                            "label": "Menu",
+                            "name": "menu",
+                            "type": "menu",
+                            "instructions": "Choose your menu (go to Appearance > Menus to create your menu)",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": "nav-logo-left"
+                            },
+                            "return_format": "id",
+                            "allow_null": 0
+                        },
+                        {
+                            "key": "field_5ed52312d9add",
+                            "label": "Socials",
+                            "name": "socials",
+                            "type": "repeater",
+                            "instructions": "Add your Social Icons",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ed52336d9ade",
+                                    "label": "Social Logo",
+                                    "name": "social_logo",
+                                    "type": "font-awesome",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "icon_sets": [
+                                        "fas",
+                                        "far",
+                                        "fab"
+                                    ],
+                                    "custom_icon_set": "",
+                                    "default_label": "",
+                                    "default_value": "",
+                                    "save_format": "element",
+                                    "allow_null": 0,
+                                    "show_preview": 1,
+                                    "enqueue_fa": 1,
+                                    "fa_live_preview": "",
+                                    "choices": []
+                                },
+                                {
+                                    "key": "field_5ed52360d9adf",
+                                    "label": "Social Link",
+                                    "name": "social_link",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5ed52bb09279c": {
+                    "key": "layout_5ed52bb09279c",
+                    "name": "logo_middle",
+                    "label": "Logo Middle - Menu Right - Socials Left",
+                    "display": "table",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ed52bb09279e",
+                            "label": "Menu",
+                            "name": "menu",
+                            "type": "menu",
+                            "instructions": "Choose your menu (go to Appearance > Menus to create your menu)",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": "nav-logo-left"
+                            },
+                            "return_format": "id",
+                            "allow_null": 0
+                        },
+                        {
+                            "key": "field_5ed52bb09279d",
+                            "label": "Logo",
+                            "name": "logo",
+                            "type": "image",
+                            "instructions": "Insert your logo here, we recommend SVG, PNG or JPG",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "post-thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_5ed52bb09279f",
+                            "label": "Socials",
+                            "name": "socials",
+                            "type": "repeater",
+                            "instructions": "Add your Social Icons",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ed52bb0927a0",
+                                    "label": "Social Logo",
+                                    "name": "social_logo",
+                                    "type": "font-awesome",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "icon_sets": [
+                                        "fas",
+                                        "far",
+                                        "fab"
+                                    ],
+                                    "custom_icon_set": "",
+                                    "default_label": "",
+                                    "default_value": "",
+                                    "save_format": "element",
+                                    "allow_null": 0,
+                                    "show_preview": 1,
+                                    "enqueue_fa": 1,
+                                    "fa_live_preview": "",
+                                    "choices": []
+                                },
+                                {
+                                    "key": "field_5ed52bb0927a1",
+                                    "label": "Social Link",
+                                    "name": "social_link",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Row",
+            "min": "",
+            "max": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-header"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1592069214
+}

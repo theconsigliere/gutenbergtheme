@@ -10,27 +10,19 @@
 <?php get_header(); ?>
 
 
-<section>
+<div id="content">
 
-    <!-- Hero Modules -->
-    <?php get_template_part('page-components/hero/hero', 'components'); ?>
+    <div id="inner-content">
 
-</section>
+        <main id="main" class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="https://schema.org/Blog">
 
-
-
-<div id="full-page">
-
-    <div id="inner-content" class="wrap">
-
-        <!-- Page Modules -->
-        <?php get_template_part('page-components/page', 'components'); ?>
+        <?php the_content(); ?>
 
 
-        <!-- Page Footer-->
-        <?php get_template_part('page-components/pre-footer/footer', 'components'); ?>
+        </main>
 
     </div>
+
 </div>
 
 

@@ -434,3 +434,24 @@ POSTS & CONTENT STYLES
     margin: 0 auto;
   }
 }
+
+// a {
+//   color: $black;
+//   font-size: 10px;
+//   font-weight: $type-bold;
+//   letter-spacing: 2px;
+//   text-transform: uppercase;
+//   transition: all 0.3s ease-in-out;
+
+//   @media (min-width: #{$screen-sm}) {
+//     font-size: 1rem;
+//   }
+
+//   &.button-cta {
+//     width: 20px;
+//   }
+
+//   * {
+//     margin-bottom: 0;
+//   }
+// }

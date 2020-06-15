@@ -337,10 +337,10 @@ http://www.longren.io/add-schema-org-markup-to-any-wordpress-theme/
 
 
         /*********************************
-WP_HEAD CLEANUP
-The default wordpress head is a mess. 
-Let's clean it up by removing all 
-the junk we don't need.
+        WP_HEAD CLEANUP
+        The default wordpress head is a mess. 
+        Let's clean it up by removing all 
+        the junk we don't need.
          **********************************/
 
         function plate_head_cleanup()
@@ -499,7 +499,7 @@ SCRIPTS & ENQUEUEING
                  // Scroll Trigger
                  wp_enqueue_script('gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollTrigger.min.js', array(), false, true);
                  
-                 wp_enqueue_script('gsap-user', get_template_directory_uri() . '/library/js/gsap-user.js', array(), false, true);
+                // wp_enqueue_script('gsap-user', get_template_directory_uri() . '/library/js/gsap-user.js', array(), false, true);
 
 
                 $wp_styles->add_data('plate-ie-only', 'conditional', 'lt IE 9'); // add conditional wrapper around ie stylesheet
@@ -519,90 +519,6 @@ ACF SCRIPTS
 
         }
 
-
-
-        /*********************
-GUTENBERG ENQUEUES
-
-These are kept out of the main enqueue
-function in case you don't need them.
-         *********************/
-
-        /**
-         * 
-         * Gutenberg Editor Styles
-         * 
-         * Enqueue block editor style for Gutenberg
-         * This applies to the admin editor *only*,
-         * (e.g. not on the front end);
-         * 
-         */
-
-        add_action('enqueue_block_editor_assets', 'plate_block_editor_styles');
-
-        function plate_block_editor_styles()
-        {
-
-            // wp_enqueue_style('plate-block-editor-styles', get_theme_file_uri('/library/css/editor.css'), false, '1.0', 'all');
-        }
-
-        /**
-         * Gutenberg Front End Styles
-         * 
-         * Enqueue front end styles for Gutenberg.
-         * 
-         */
-        add_action('enqueue_block_assets', 'plate_gutenberg_styles');
-
-        function plate_gutenberg_styles()
-        {
-
-            // wp_enqueue_style('plate-gutenberg-styles', get_theme_file_uri('/library/css/gutenberg.css'), false, '1.0', 'all');
-        }
-
-        /****************************************
-         * REMOVE WP EXTRAS & DEQUEUEING STUFFS *
-         ****************************************/
-
-        /* 
-
-
-        /* 
-* Dequeue jQuery Migrate
-* I'm commenting this out by default. Why? Because Gravity Forms *requires* it
-* for some form functions to work...***eye roll***. 
-*/
-        // add_action( 'wp_default_scripts', 'plate_dequeue_jquery_migrate' );
-
-        // function plate_dequeue_jquery_migrate( $scripts ) {
-
-        //     if (! empty( $scripts->registered['jquery'] ) ) {
-
-        //         $jquery_dependencies = $scripts->registered['jquery']->deps;
-
-        //         $scripts->registered['jquery']->deps = array_diff( $jquery_dependencies, array( 'jquery-migrate' ) );
-
-        //     }
-
-        // }
-
-        // Remove wp-embed.min.js from the front end. Commented out by default as you may need it.
-        // See here: https://wordpress.stackexchange.com/questions/211701/what-does-wp-embed-min-js-do-in-wordpress-4-4
-        // add_action( 'init', function() {
-
-        //       // Remove the REST API endpoint.
-        //       remove_action('rest_api_init', 'wp_oembed_register_route');
-
-        //       // Turn off oEmbed auto discovery.
-        //       // Don't filter oEmbed results.
-        //       remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10);
-
-        //       // Remove oEmbed discovery links.
-        //       remove_action('wp_head', 'wp_oembed_add_discovery_links');
-
-        //       // Remove oEmbed-specific JavaScript from the front-end and back-end.
-        //       remove_action('wp_head', 'wp_oembed_add_host_js');
-        //   }, PHP_INT_MAX - 1 );
 
 
         // Remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
@@ -755,49 +671,7 @@ THEME SUPPORT
                 )
             );
 
-            // Gutenberg support: https://www.billerickson.net/getting-your-theme-ready-for-gutenberg/
-            // https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
-            // .alignwide styles added to _768up
-            add_theme_support('align-wide');
 
-            add_theme_support(
-                'editor-color-palette',
-                array(
-                    'name' => 'studio bio blue',
-                    'color' => '#0056ac',
-                ),
-                array(
-                    'name' => 'studio bio light blue',
-                    'color' => '#99bbde',
-                ),
-                array(
-                    'name' => 'studio bio midnight',
-                    'color' => '#001c3a',
-                ),
-                array(
-                    'name' => 'studio bio purple',
-                    'color' => '#cc0099',
-                ),
-                array(
-                    'name' => 'studio bio red',
-                    'color' => '#f23e2f',
-                ),
-                array(
-                    'name' => 'grey 70',
-                    'color' => '#444444',
-                ),
-                array(
-                    'name' => 'grey 20',
-                    'color' => '#cccccc',
-                )
-            );
-
-            // Adds default Gutenberg styles to custom blocks
-            // Delete/comment out if you are adding your own block styles
-            add_theme_support('wp-block-styles');
-
-            // To limit the Gutenberg editor to your theme colors, uncomment this
-            // add_theme_support( 'disable-custom-colors' );
 
         } /* end plate theme support */
 
@@ -1278,13 +1152,6 @@ RELATED POSTS FUNCTION
                     'required'  => true,
                 ),
 
-                // Classic Editor
-                array(
-                    'name'      => 'Classic Editor',
-                    'slug'      => 'classic-editor',
-                    'required'  => true,
-                ),
-
                 // Duplicate Post
                 array(
                     'name'      => 'Duplicate Post',
@@ -1397,27 +1264,228 @@ RELATED POSTS FUNCTION
         }
 
 
+/*********************
+GUTENBERG 
+*********************/
+
+       //ADDING CUSTOM STYLESHEET FOR ALL BLOCKS
+
+
+     add_action( 'after_setup_theme', 'gutenberg_css' );
+ 
+        function gutenberg_css(){
+         
+           add_theme_support( 'editor-styles' ); // if you don't add this line, your stylesheet won't be added
+         add_editor_style( 'library/css/editor-styles.css' ); // tries to include style-editor.css directly from your theme folder
+       }
+
+        // ALLOW WIDE IN GUTENBERG
+
+        add_theme_support( 'align-wide' );
+        
+
+        // FILTER GUTENBERG BLOCKS WE DONT NEED
+
+
+
+        add_filter( 'allowed_block_types', 'dirtymartini_allowed_block_types' );
+ 
+        function dirtymartini_allowed_block_types( $allowed_blocks ) {
+        
+            return array(
+               // 'core/image',
+               // 'core/heading',
+               // 'core/list',
+                'acf/title-section',
+                'acf/button-section',
+                'acf/hero-collage',
+                'acf/hero-fullwidth',
+                'acf/hero-textside-imageside',
+                'acf/hero-video',
+            );
+        
+        }
+
+
+        // CUSTOM BLOCK CATEGORY
+
+        function my_category( $categories, $post ) {
+            return array_merge(
+                $categories,
+                array(
+                    array(
+                        'slug' => 'page-blocks',
+                        'title' => __( 'Page Blocks', 'page-blocks' ),
+                    ),
+                    array(
+                        'slug' => 'post-blocks',
+                        'title' => __( 'Post Blocks', 'post-blocks' ),
+                    ),
+                    array(
+                        'slug' => 'hero-blocks',
+                        'title' => __( 'Hero Blocks', 'hero-blocks' ),
+                    ),
+                    array(
+                        'slug' => 'experimental-blocks',
+                        'title' => __( 'Experimental Blocks', 'experimental-blocks' ),
+                    ),
+                )
+            );
+        }
+        add_filter( 'block_categories', 'my_category', 10, 2);
+
+
         // REGISTER GUTENBERG BLOCKS
 
         add_action('acf/init', 'my_acf_init_block_types');
-function my_acf_init_block_types() {
 
-    // Check function exists.
-    if( function_exists('acf_register_block_type') ) {
 
-        // register a testimonial block.
-        acf_register_block_type(array(
-            'name'              => 'title-section',
-            'title'             => __('Title Section'),
-            'description'       => __('A custom Title Section.'),
-            'render_template'   => 'page-components/title-section.php',
-            'category'          => 'formatting',
-            'icon'              => 'admin-comments',
-            'keywords'          => array( 'title', 'text' ),
-            'enqueue_style' => get_template_directory_uri() . '/library/css/style.css',
-        ));
-    }
-}
+        function my_acf_init_block_types() {
+
+            // Check function exists.
+            if( function_exists('acf_register_block_type') ) {
+
+                //* PAGE BLOCKS
+                // *********************/
+
+                // register a title Section block.
+                acf_register_block_type(array(
+                    'name'              => 'title-section',
+                    'title'             => __('Title Section'),
+                    'description'       => __('A Custom Title Section.'),
+                    'render_template'   => 'blocks/page/title-section.php',
+                    'category'          => 'page-blocks',
+                    'icon'              => 'editor-paragraph',
+                    'keywords'          => array( 'title', 'text' ),
+                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                  
+                    'supports'          => [
+
+                        'align' => ['full'],
+                        // This property allows the block to be added multiple times. Defaults to true.
+                       // 'multiple'      => false,
+                    ]
+                  
+                   
+                ));
+
+                // register a Button Section block.
+                acf_register_block_type(array(
+                    'name'              => 'button-section',
+                    'title'             => __('Button Section'),
+                    'description'       => __('A Custom Button Section.'),
+                    'render_template'   => 'blocks/page/button-section.php',
+                    'category'          => 'page-blocks',
+                    'icon'              => 'admin-links',
+                    'keywords'          => array( 'title', 'text' ),
+                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    
+                    'supports'          => [
+
+                        'align' => ['full'],
+                        // This property allows the block to be added multiple times. Defaults to true.
+                        // 'multiple'      => false,
+                    ]
+                    
+                    
+                ));
+
+
+                 //* HERO BLOCKS
+                // *********************/
+
+
+                // Hero Full Width
+                    acf_register_block_type(array(
+                        'name'              => 'hero-fullwidth',
+                        'title'             => __('Hero Full-Width'),
+                        'description'       => __('A Custom Hero Section.'),
+                        'render_template'   => 'blocks/hero/hero-fullwidth.php',
+                        'category'          => 'hero-blocks',
+                        'icon'              => 'desktop',
+                        'keywords'          => array( 'hero', 'fullwidth', 'full', 'full-width' ),
+                         // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                      
+                        'supports'          => [
+
+                            'align' => ['full'],
+                            // This property allows the block to be added multiple times. Defaults to true.
+                            'multiple'      => false,
+                        ]
+                    
+                ));
+
+                // Hero Text Side Image Side 
+                    acf_register_block_type(array(
+                        'name'              => 'hero-textside-imageside',
+                        'title'             => __('Hero Text Side Image Side'),
+                        'description'       => __('A Custom Hero Section.'),
+                        'render_template'   => 'blocks/hero/hero-imageside-textside.php',
+                        'category'          => 'hero-blocks',
+                        'icon'              => 'desktop',
+                        'keywords'          => array( 'hero', 'text', 'image', '50-50' ),
+                            // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                        
+                        'supports'          => [
+
+                            'align' => ['full'],
+                            // This property allows the block to be added multiple times. Defaults to true.
+                            'multiple'      => false,
+                        ]
+                    
+                ));
+
+                // Hero Video 
+                acf_register_block_type(array(
+                    'name'              => 'hero-video',
+                    'title'             => __('Hero Video'),
+                    'description'       => __('A Custom Hero Section.'),
+                    'render_template'   => 'blocks/hero/hero-video.php',
+                    'category'          => 'hero-blocks',
+                    'icon'              => 'desktop',
+                    'keywords'          => array( 'hero', 'video' ),
+                        // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    
+                    'supports'          => [
+                        'align' => ['full'],
+                        // This property allows the block to be added multiple times. Defaults to true.
+                        'multiple'      => false,
+                    ]
+                
+            ));
+
+
+                // Hero Collage
+                    acf_register_block_type(array(
+                        'name'              => 'hero-collage',
+                        'title'             => __('Hero Collage'),
+                        'description'       => __('A Custom Hero Section.'),
+                        'render_template'   => 'blocks/hero/hero-collage.php',
+                        'category'          => 'hero-blocks',
+                        'icon'              => 'desktop',
+                        'keywords'          => array( 'hero', 'collage' ),
+                         // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                      
+                        'supports'          => [
+
+                            'align' => ['full'],
+                            // This property allows the block to be added multiple times. Defaults to true.
+                            'multiple'      => false,
+                        ]
+               
+                    
+                    ));
+
+
+
+                //* POST BLOCKS
+                // *********************/
+
+                //* EXPERIMENTAL BLOCKS
+                // *********************/
+
+            }
+        }
 
 
 

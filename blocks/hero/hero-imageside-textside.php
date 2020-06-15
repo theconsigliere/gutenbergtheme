@@ -1,4 +1,34 @@
-<div id='hero-textside-imageside'>
+<?php
+
+/**
+ *  Hero Full-Width
+ *
+ * @param   array $block The block settings and attributes.
+ * @param   string $content The block inner HTML (empty).
+ * @param   bool $is_preview True during AJAX preview.
+ * @param   (int|string) $post_id The post ID this block is saved to.
+ */
+
+// Create id attribute allowing for custom "anchor" value.
+$id = 'hero-' . $block['id'];
+if( !empty($block['anchor']) ) {
+    $id = $block['anchor'];
+}
+
+// Create class attribute allowing for custom "className" and "align" values.
+$className = 'hero-textside-imageside';
+if( !empty($block['className']) ) {
+    $className .= ' ' . $block['className'];
+}
+if( !empty($block['align']) ) {
+    $className .= ' align' . $block['align'];
+}
+
+?>
+
+
+<div class="<?php echo esc_attr($className); ?>"  id="hero-textside-imageside">
+
 
     <?php
 
@@ -9,8 +39,6 @@
         <?php while ( have_rows('hero_column') ) : the_row(); ?>
 
            
-                
-
         <?php // FLEXIBLE CONTENT IN COLUMNS ?>
 
             <?php if (have_rows('hero_item')) : while (have_rows('hero_item')) : the_row();
@@ -23,7 +51,7 @@
                                 <div class="hero__text">
                                     <div class="hero__text_inner">
 
-                                        <?php if (get_sub_field('hero_sub_title')) { ?>
+                                    <?php if (get_sub_field('hero_sub_title')) { ?>
                                         <h6 class='js_textside__sub_title uppercase font-bold-title sub_title'><span class='hero-line'></span><?php the_sub_field('hero_sub_title'); ?></h6>
                                         <?php } ?>
         
@@ -42,7 +70,7 @@
                                             $link_title = $link['title'];
                                             $link_target = $link['target'] ? $link['target'] : '_self';
                                             ?>
-                                            <a class="button js_textside__button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                                            <a class="main-button js_textside__button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
                                         <?php endif; ?>
                                     </div>
                                 </div>
@@ -55,18 +83,18 @@
                         elseif (get_row_layout() == 'hero_image_section') : ?>
 
                         <div class="hero__column js_hero__imageside">
-
-                            <?php echo wp_get_attachment_image( get_sub_field('hero_image'), 'full', '', array('class'=>'js_hero__imageside_image')); ?>
+                            <?php echo wp_get_attachment_image( get_sub_field('hero_imageside'), 'full', '', array('class'=>'js_hero__imageside_image')); ?>
                         </div>
 
                         <?php endif;
         
-                    endwhile; endif; ?>
+                    endwhile; endif; 
 
             
      
+    // END REPEATER
 
-        <?php  endwhile;  endif; ?>
+         endwhile;  endif; ?>
 
 
 </div>

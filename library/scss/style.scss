@@ -19,30 +19,29 @@ http://thesassway.com/advanced/modular-css-naming-conventions
 ******************************************************************/
 
 /*********************
-IMPORTING MODULES
-These files are needed at the beginning so that we establish all
-our mixins, functions, and variables that we'll be using across
-the whole project.
+IMPORTING GUTTENBERG BLOCKS & BASE VARIABLES
 *********************/
 
-@import "modules/Color";
-@import "modules/Variables";
-@import "modules/Mixins";
-@import "modules/Typography";
-@import "modules/Base";
-@import "modules/Hero";
-@import "modules/Modules";
-@import "modules/Header";
-@import "modules/Prefooter";
-@import "modules/Footer";
-@import "modules/Button";
-@import "modules/Grid";
-@import "modules/Post";
-@import "modules/Swiper";
-@import "modules/Barba";
-@import "modules/Settings";
-@import "modules/Experimental";
-@import "modules/Landscape";
+@import "editor-styles";
+
+/*********************
+IMPORTING FRONT END BASE
+*********************/
+
+// @import "base/Typography";
+// @import "base/Button";
+@import "base/Base";
+
+/*********************
+IMPORTING CORE
+*********************/
+
+@import "core/Header";
+@import "core/Footer";
+@import "core/Swiper";
+@import "core/Barba";
+@import "core/Settings";
+@import "core/Landscape";
 
 // Styles for the custom dashboard widget in the admin
 #plate_dashboard_widget {
@@ -68,9 +67,3 @@ the whole project.
 #wpfooter {
   display: none;
 }
-
-/*********************
-MY STYLES
-*********************/
-
-@import "MyStyles";

@@ -1,11 +1,7 @@
 // Button
 // ––––––––––––––––––––––––––––––––––––––––––––––––––
 
-.button,
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+.main-button {
   background-color: $black;
   border: 0.1rem solid $black;
   color: $color-initial;
@@ -143,43 +139,5 @@ input[type="submit"] {
 
   @media (min-width: #{$screen-sm}) {
     font-size: 1rem;
-  }
-
-  a {
-    color: $black;
-    font-size: 10px;
-    font-weight: $type-bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
-
-    @media (min-width: #{$screen-sm}) {
-      font-size: 1rem;
-    }
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  &:not(:disabled):hover {
-    background: lighten($black, 10%);
-  }
-
-  &:hover {
-    color: $white;
-
-    a {
-      color: $white;
-    }
-  }
-
-  &.button-cta {
-    width: 20px;
-  }
-
-  * {
-    margin-bottom: 0;
   }
 }
