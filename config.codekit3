@@ -105,6 +105,14 @@
 		"oO": 0,
 		"oS": 1
 		},
+	"/acf-json/group_5ee8b12b97547.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5ee8b12b97547-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"/acf-json/README.html": {
 		"cB": 0,
 		"ft": 8192,
@@ -170,6 +178,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/blocks/hero/hero-video.php",
+		"oF": 0
+		},
+	"/blocks/page/blog-section.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/blocks/page/blog-section.php",
 		"oF": 0
 		},
 	"/blocks/page/button-section.php": {
@@ -1210,14 +1226,6 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/page-basic.php",
-		"oF": 0
-		},
-	"/page-components/blog-section.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/blog-section.php",
 		"oF": 0
 		},
 	"/page-components/card-section.php": {

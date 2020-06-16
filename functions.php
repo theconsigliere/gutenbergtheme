@@ -1298,6 +1298,7 @@ GUTENBERG
                // 'core/list',
                 'acf/title-section',
                 'acf/button-section',
+                'acf/blog-section',
                 'acf/hero-collage',
                 'acf/hero-fullwidth',
                 'acf/hero-textside-imageside',
@@ -1360,14 +1361,30 @@ GUTENBERG
                     // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
                   
                     'supports'          => [
-
+                        
                         'align' => ['full'],
                         // This property allows the block to be added multiple times. Defaults to true.
                        // 'multiple'      => false,
                     ]
-                  
-                   
                 ));
+
+
+                // register a Blog Section block.
+                acf_register_block_type(array(
+                    'name'              => 'blog-section',
+                    'title'             => __('Blog Section'),
+                    'description'       => __('A Custom Blog Section.'),
+                    'render_template'   => 'blocks/page/blog-section.php',
+                    'category'          => 'page-blocks',
+                    'icon'              => 'editor-paragraph',
+                    'keywords'          => array( 'blog', 'text' ),
+                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    'supports'          => [
+                        'align' => ['full'],
+                    ]
+                ));
+                
+
 
                 // register a Button Section block.
                 acf_register_block_type(array(
@@ -1386,8 +1403,6 @@ GUTENBERG
                         // This property allows the block to be added multiple times. Defaults to true.
                         // 'multiple'      => false,
                     ]
-                    
-                    
                 ));
 
 

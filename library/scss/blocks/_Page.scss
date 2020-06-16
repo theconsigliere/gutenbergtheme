@@ -81,7 +81,8 @@
   @include center-start;
   padding: 0;
   width: 100%;
-  margin-bottom: $page-margin-row;
+  margin: 20px 0;
+
 
   * {
     margin-right: $text-space;
@@ -96,7 +97,7 @@
   padding: 25px 0;
   flex-basis: auto;
   margin: calc(#{$page-margin-column} / 2) calc(#{$page-margin-row} / 2);
-  border-bottom: 8px solid $black;
+  border-bottom: 2px solid $black;
 
   @media (min-width: #{$screen-lg}) {
     padding: 0;
@@ -154,7 +155,7 @@ pre {
   border-left: 0.3rem solid $color-primary;
   overflow-y: hidden;
 
-  & > code {
+  &>code {
     border-radius: 0;
     display: block;
     padding: 1rem 1.5rem;
@@ -255,10 +256,8 @@ table {
   }
 }
 
-.card__item_image,
-.l-image {
+.card__item_image {
   width: 100%;
-  padding: 10px;
   overflow: hidden;
   @include center-center;
 
@@ -359,6 +358,7 @@ table {
     line-height: 0.8;
     margin-bottom: 5rem;
   }
+
   p {
     max-width: 100%;
 
@@ -514,8 +514,10 @@ table {
 
   .swiper-slide__content {
     position: absolute;
-    top: 50%; /* position the top  edge of the element at the middle of the parent */
-    left: 50%; /* position the left edge of the element at the middle of the parent */
+    top: 50%;
+    /* position the top  edge of the element at the middle of the parent */
+    left: 50%;
+    /* position the left edge of the element at the middle of the parent */
     transform: translate(-50%, -50%);
 
     * {
