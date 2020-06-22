@@ -1,4 +1,34 @@
-<section class='card-section'>
+<?php
+
+/**
+ *  Hero Full-Width
+ *
+ * @param   array $block The block settings and attributes.
+ * @param   string $content The block inner HTML (empty).
+ * @param   bool $is_preview True during AJAX preview.
+ * @param   (int|string) $post_id The post ID this block is saved to.
+ */
+
+// Create id attribute allowing for custom "anchor" value.
+$id = 'card-section-' . $block['id'];
+if( !empty($block['anchor']) ) {
+    $id = $block['anchor'];
+}
+
+// Create class attribute allowing for custom "className" and "align" values.
+$className = 'card-section';
+if( !empty($block['className']) ) {
+    $className .= ' ' . $block['className'];
+}
+if( !empty($block['align']) ) {
+    $className .= ' align' . $block['align'];
+}
+
+?>
+
+
+
+<section id="<?php echo esc_attr($id); ?>" class='card-section'>
 
 
     <div class="full-width-section">
@@ -6,12 +36,13 @@
 
         <?php 
 
-        $subtitle = get_sub_field('card_title');
+        $subtitle = get_field('card_title');
 
         if ( $subtitle) { ?>
 
-            <div class="title-section <?php the_sub_field('card_position'); ?>">
-                <h1><?php the_sub_field('card_title'); ?></h1>
+
+            <div class="title-section <?php the_field('card_position'); ?>">
+                <h1><?php the_field('card_title'); ?></h1>
             </div>
 
         <?php } ?>
@@ -54,7 +85,7 @@
                                 $link_title = $link['title'];
                                 $link_target = $link['target'] ? $link['target'] : '_self';
                                 ?>
-                                <a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                                <a class="main-button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
                             <?php endif; ?>
 
 

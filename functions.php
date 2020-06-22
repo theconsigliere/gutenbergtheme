@@ -467,11 +467,6 @@ SCRIPTS & ENQUEUEING
                 // accessibility (a11y) scripts
                 wp_enqueue_script('plate-a11y', get_theme_file_uri() . '/library/js/a11y.js', array('jquery'), '', true);
 
-                  // GLIDE Scripts
-               wp_enqueue_script('swiper', get_template_directory_uri() . '/library/js/swiper.min.js', array(), '', true);
-
-               //Glide User File
-               wp_enqueue_script('swiper-user', get_template_directory_uri() . '/library/js/swiper-user.js', array(), '', true);
 
                 // Barba Scripts
                 // wp_enqueue_script('barba', get_template_directory_uri() . '/library/js/barba/barba.js', array(), '', true);
@@ -480,8 +475,6 @@ SCRIPTS & ENQUEUEING
                 // MODAL -> THEME SETTINGS
                 wp_enqueue_script('modal', get_template_directory_uri() . '/library/js/modal.js', array(), false, '1.0.0' );
 
-                // For List Component
-                wp_enqueue_script('list', get_template_directory_uri() . '/library/js/list.js', array(), false, '1.0.0' );
 
                 // Header
                 wp_enqueue_script('header', get_template_directory_uri() . '/library/js/header.js', array(), '', true );
@@ -1296,9 +1289,21 @@ GUTENBERG
                // 'core/image',
                // 'core/heading',
                // 'core/list',
+               // Post Blocks
+               'acf/author',
+               'acf/quote',
+               'acf/display-posts',
+               //page blocks
                 'acf/title-section',
                 'acf/button-section',
                 'acf/blog-section',
+                'acf/card-section',
+                'acf/content-section',
+                'acf/image-section',
+                'acf/slideshow',
+                'acf/contact-section',
+                'acf/list-section',
+                // Hero Blocks
                 'acf/hero-collage',
                 'acf/hero-fullwidth',
                 'acf/hero-textside-imageside',
@@ -1383,8 +1388,109 @@ GUTENBERG
                         'align' => ['full'],
                     ]
                 ));
-                
 
+                // register a Contact Section block.
+                acf_register_block_type(array(
+                    'name'              => 'contact-section',
+                    'title'             => __('Contact Section'),
+                    'description'       => __('A Custom contact Section.'),
+                    'render_template'   => 'blocks/page/contact-section.php',
+                    'category'          => 'page-blocks',
+                    'icon'              => 'admin-comments',
+                    'keywords'          => array( 'contact', 'form' ),
+                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    'supports'          => [
+                        'align' => ['full'],
+                    ]
+                ));
+
+                // register a Slideshow block.
+                acf_register_block_type(array(
+                    'name'              => 'slideshow',
+                    'title'             => __('Slideshow'),
+                    'description'       => __('A Custom Slideshow.'),
+                    'render_template'   => 'blocks/page/slideshow.php',
+                    'category'          => 'page-blocks',
+                    'icon'              => 'slides',
+                    'keywords'          => array( 'slideshow', 'slides', 'carousel' ),
+
+                    'enqueue_assets' => function(){
+                         // Swiper Scripts
+                            wp_enqueue_script('swiper', get_template_directory_uri() . '/library/js/swiper.min.js', array(), '', true);
+                            wp_enqueue_script('user-swipe', get_template_directory_uri() . '/library/js/blocks/swiper-slideshow.js', array(), '', true);
+                      },
+                    'supports'          => [
+                        'align' => ['full'],
+                    ]
+                ));
+
+                // register a Content Section block.
+                acf_register_block_type(array(
+                    'name'              => 'content-section',
+                    'title'             => __('Content Section'),
+                    'description'       => __('A Custom Content Section.'),
+                    'render_template'   => 'blocks/page/content-section.php',
+                    'category'          => 'page-blocks',
+                    'icon'              => 'editor-contract',
+                    'keywords'          => array( 'content', 'text', 'html', 'raw' ),
+                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    'supports'          => [
+                        'align' => ['full'],
+                    ]
+                ));
+
+                // register a List Section block.
+                acf_register_block_type(array(
+                    'name'              => 'list-section',
+                    'title'             => __('List Section'),
+                    'description'       => __('A Custom List Section.'),
+                    'render_template'   => 'blocks/page/list-section.php',
+                    'category'          => 'page-blocks',
+                    'icon'              => 'list-view',
+                    'keywords'          => array( 'List', 'text' ),
+                    'enqueue_script' => get_template_directory_uri() . '/library/js/blocks/list.js',
+                    'supports'          => [
+                        'align' => ['full'],
+                    ]
+                ));
+
+                // register a Card Section block.
+                acf_register_block_type(array(
+                    'name'              => 'card-section',
+                    'title'             => __('Card Section'),
+                    'description'       => __('A Custom Card Section.'),
+                    'render_template'   => 'blocks/page/card-section.php',
+                    'category'          => 'page-blocks',
+                    'icon'              => 'admin-page',
+                    'keywords'          => array( 'card', 'section', 'options' ),
+                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    
+                    'supports'          => [
+                        
+                        'align' => ['full'],
+                        // This property allows the block to be added multiple times. Defaults to true.
+                        // 'multiple'      => false,
+                    ]
+                ));
+
+                // register a Image Section block.
+                acf_register_block_type(array(
+                    'name'              => 'image-section',
+                    'title'             => __('Image Section'),
+                    'description'       => __('A Custom Image Section.'),
+                    'render_template'   => 'blocks/page/image-section.php',
+                    'category'          => 'page-blocks',
+                    'icon'              => 'images-alt2',
+                    'keywords'          => array( 'image', 'section', 'images' ),
+                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    
+                    'supports'          => [
+                        
+                        'align' => ['full'],
+                        // This property allows the block to be added multiple times. Defaults to true.
+                        // 'multiple'      => false,
+                    ]
+                ));
 
                 // register a Button Section block.
                 acf_register_block_type(array(
@@ -1496,6 +1602,65 @@ GUTENBERG
                 //* POST BLOCKS
                 // *********************/
 
+
+                // register Author block.
+                acf_register_block_type(array(
+                    'name'              => 'author',
+                    'title'             => __('Author'),
+                    'description'       => __('A Custom Author Block.'),
+                    'render_template'   => 'blocks/post/author.php',
+                    'category'          => 'post-blocks',
+                    'icon'              => 'admin-users',
+                    'keywords'          => array( 'author', 'post' ),
+                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                  
+                    'supports'          => [
+                        
+                        'align' => ['full'],
+                        // This property allows the block to be added multiple times. Defaults to true.
+                       // 'multiple'      => false,
+                    ]
+                ));
+                
+                // register Quote block.
+                acf_register_block_type(array(
+                    'name'              => 'quote',
+                    'title'             => __('Quote'),
+                    'description'       => __('A Custom Quote Block.'),
+                    'render_template'   => 'blocks/post/quote.php',
+                    'category'          => 'post-blocks',
+                    'icon'              => 'format-quote',
+                    'keywords'          => array( 'quote', 'post' ),
+                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                  
+                    'supports'          => [
+                        
+                        'align' => ['full'],
+                        // This property allows the block to be added multiple times. Defaults to true.
+                       // 'multiple'      => false,
+                    ]
+                ));
+
+                // register Display Post block.
+                acf_register_block_type(array(
+                    'name'              => 'display-posts',
+                    'title'             => __('Display Posts'),
+                    'description'       => __('Displays all of your chosen articles.'),
+                    'render_template'   => 'blocks/post/post-display.php',
+                    'category'          => 'post-blocks',
+                    'icon'              => 'admin-post',
+                    'keywords'          => array( 'display', 'post', 'blogs', 'article' ),
+                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                  
+                    'supports'          => [
+                        
+                        'align' => ['full'],
+                        // This property allows the block to be added multiple times. Defaults to true.
+                       // 'multiple'      => false,
+                    ]
+                ));
+
+                
                 //* EXPERIMENTAL BLOCKS
                 // *********************/
 

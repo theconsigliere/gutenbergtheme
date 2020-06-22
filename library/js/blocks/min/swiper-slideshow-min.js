@@ -1,0 +1,2 @@
+"use strict";var startSwiper=function(){new Swiper(".swiper-container",{loop:!0,pagination:{el:".swiper-pagination",type:"progressbar"},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}})};document.addEventListener("DOMContentLoaded",(function(){startSwiper()}),!1),window.acf&&window.acf.addAction("render_block_preview/type=slideshow",startSwiper);
+//# sourceMappingURL=swiper-slideshow-min.js.map

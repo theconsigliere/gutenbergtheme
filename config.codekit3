@@ -113,6 +113,78 @@
 		"oO": 0,
 		"oS": 1
 		},
+	"/acf-json/group_5ee922ee81cec.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5ee922ee81cec-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/acf-json/group_5eed1a44db2f4.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5eed1a44db2f4-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/acf-json/group_5eef4b9345547.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5eef4b9345547-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/acf-json/group_5eef4d49956df.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5eef4d49956df-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/acf-json/group_5eef4fd35aaa2.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5eef4fd35aaa2-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/acf-json/group_5eef51a7831b2.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5eef51a7831b2-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/acf-json/group_5eef906a0459c.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5eef906a0459c-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/acf-json/group_5eefb0149fd4b.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5eefb0149fd4b-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/acf-json/group_5eefb259c24b6.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5eefb259c24b6-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"/acf-json/README.html": {
 		"cB": 0,
 		"ft": 8192,
@@ -196,12 +268,84 @@
 		"oAP": "/blocks/page/button-section.php",
 		"oF": 0
 		},
+	"/blocks/page/card-section.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/blocks/page/card-section.php",
+		"oF": 0
+		},
+	"/blocks/page/contact-section.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/blocks/page/contact-section.php",
+		"oF": 0
+		},
+	"/blocks/page/content-section.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/blocks/page/content-section.php",
+		"oF": 0
+		},
+	"/blocks/page/image-section.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/blocks/page/image-section.php",
+		"oF": 0
+		},
+	"/blocks/page/list-section.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/blocks/page/list-section.php",
+		"oF": 0
+		},
+	"/blocks/page/slideshow.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/blocks/page/slideshow.php",
+		"oF": 0
+		},
 	"/blocks/page/title-section.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/blocks/page/title-section.php",
+		"oF": 0
+		},
+	"/blocks/post/author.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/blocks/post/author.php",
+		"oF": 0
+		},
+	"/blocks/post/post-display.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/blocks/post/post-display.php",
+		"oF": 0
+		},
+	"/blocks/post/quote.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/blocks/post/quote.php",
 		"oF": 0
 		},
 	"/comments.php": {
@@ -413,6 +557,47 @@
 		"sC": 3,
 		"tS": 1
 		},
+	"/library/js/blocks/list.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 1,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/library/js/blocks/min/list-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
+		},
+	"/library/js/blocks/min/swiper-slideshow-min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 1,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/library/js/blocks/min/min/swiper-slideshow-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
+		},
+	"/library/js/blocks/min/swiper-slideshow-min.js.map": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/library/js/blocks/min/swiper-slideshow-min.js.map",
+		"oF": 0
+		},
+	"/library/js/blocks/swiper-slideshow.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 1,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/library/js/blocks/min/swiper-slideshow-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
+		},
 	"/library/js/gsap-user.js": {
 		"bF": 0,
 		"ft": 64,
@@ -453,17 +638,6 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "/library/js/libs/min/modernizr-custom-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"/library/js/list.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 1,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/library/js/min/list-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 1
@@ -766,17 +940,6 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "/library/js/min/scripts-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
-	"/library/js/swiper-user.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 1,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/library/js/min/swiper-user-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 1
@@ -1220,62 +1383,6 @@
 		"oO": 0,
 		"oS": 1
 		},
-	"/page-basic.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-basic.php",
-		"oF": 0
-		},
-	"/page-components/card-section.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/card-section.php",
-		"oF": 0
-		},
-	"/page-components/contact-form.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/contact-form.php",
-		"oF": 0
-		},
-	"/page-components/content-content.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/content-content.php",
-		"oF": 0
-		},
-	"/page-components/experimental-layouts/experimental-components.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/experimental-layouts/experimental-components.php",
-		"oF": 0
-		},
-	"/page-components/experimental-layouts/marquee.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/experimental-layouts/marquee.php",
-		"oF": 0
-		},
-	"/page-components/experimental-layouts/text-trail.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/experimental-layouts/text-trail.php",
-		"oF": 0
-		},
 	"/page-components/footer/footer-bottom.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1298,22 +1405,6 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/page-components/footer/footer-main.php",
-		"oF": 0
-		},
-	"/page-components/grid/grid-one-one.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/grid/grid-one-one.php",
-		"oF": 0
-		},
-	"/page-components/grid/grid-two-one.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/grid/grid-two-one.php",
 		"oF": 0
 		},
 	"/page-components/header/header-components.php": {
@@ -1356,38 +1447,6 @@
 		"oAP": "/page-components/header/logo-middle.php",
 		"oF": 0
 		},
-	"/page-components/image-section.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/image-section.php",
-		"oF": 0
-		},
-	"/page-components/list-section.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/list-section.php",
-		"oF": 0
-		},
-	"/page-components/page-components.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/page-components.php",
-		"oF": 0
-		},
-	"/page-components/posts/post-author.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/posts/post-author.php",
-		"oF": 0
-		},
 	"/page-components/posts/post-components.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1396,28 +1455,12 @@
 		"oAP": "/page-components/posts/post-components.php",
 		"oF": 0
 		},
-	"/page-components/posts/post-display.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/posts/post-display.php",
-		"oF": 0
-		},
 	"/page-components/posts/post-html.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/page-components/posts/post-html.php",
-		"oF": 0
-		},
-	"/page-components/posts/post-quote.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/posts/post-quote.php",
 		"oF": 0
 		},
 	"/page-components/posts/post-text-title.php": {
@@ -1476,14 +1519,6 @@
 		"oAP": "/page-components/pre-footer/footer-socials.php",
 		"oF": 0
 		},
-	"/page-components/slider-section.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-components/slider-section.php",
-		"oF": 0
-		},
 	"/page-components/theme-settings/announcement-bar.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1506,14 +1541,6 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/page-components/theme-settings/pre-loader.php",
-		"oF": 0
-		},
-	"/page-sidebar.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-sidebar.php",
 		"oF": 0
 		},
 	"/page.php": {
@@ -1603,86 +1630,6 @@
 		"oAP": "/library/css/style-min.css",
 		"oF": 0,
 		"oS": 3
-		},
-	"/templates/archive-loop.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/templates/archive-loop.php",
-		"oF": 0
-		},
-	"/templates/byline.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/templates/byline.php",
-		"oF": 0
-		},
-	"/templates/category-tags.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/templates/category-tags.php",
-		"oF": 0
-		},
-	"/templates/comment-count.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/templates/comment-count.php",
-		"oF": 0
-		},
-	"/templates/content-excerpt.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/templates/content-excerpt.php",
-		"oF": 0
-		},
-	"/templates/header-title.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/templates/header-title.php",
-		"oF": 0
-		},
-	"/templates/index-loop.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/templates/index-loop.php",
-		"oF": 0
-		},
-	"/templates/loop.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/templates/loop.php",
-		"oF": 0
-		},
-	"/templates/post-navigation.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/templates/post-navigation.php",
-		"oF": 0
-		},
-	"/templates/single-loop.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/templates/single-loop.php",
-		"oF": 0
 		}
 	},
 "hooks": [
