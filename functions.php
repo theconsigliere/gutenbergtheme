@@ -475,6 +475,7 @@ SCRIPTS & ENQUEUEING
                 // MODAL -> THEME SETTINGS
                 wp_enqueue_script('modal', get_template_directory_uri() . '/library/js/modal.js', array(), false, '1.0.0' );
 
+               
 
                 // Header
                 wp_enqueue_script('header', get_template_directory_uri() . '/library/js/header.js', array(), '', true );
@@ -1294,6 +1295,7 @@ GUTENBERG
                'acf/quote',
                'acf/display-posts',
                //page blocks
+                'acf/socials',
                 'acf/title-section',
                 'acf/button-section',
                 'acf/blog-section',
@@ -1414,10 +1416,11 @@ GUTENBERG
                     'icon'              => 'slides',
                     'keywords'          => array( 'slideshow', 'slides', 'carousel' ),
 
-                    'enqueue_assets' => function(){
-                         // Swiper Scripts
-                            wp_enqueue_script('swiper', get_template_directory_uri() . '/library/js/swiper.min.js', array(), '', true);
-                            wp_enqueue_script('user-swipe', get_template_directory_uri() . '/library/js/blocks/swiper-slideshow.js', array(), '', true);
+                    'enqueue_assets' => function(){ 
+                        // Slick Scripts
+                        wp_enqueue_script('slick', get_template_directory_uri() . '/library/js/slick.min.js', array('jquery'), '', true);
+
+                        wp_enqueue_script('user-slick', get_template_directory_uri() . '/library/js/blocks/user-slick.js', array('jquery'), '', true);
                       },
                     'supports'          => [
                         'align' => ['full'],
@@ -1449,6 +1452,7 @@ GUTENBERG
                     'icon'              => 'list-view',
                     'keywords'          => array( 'List', 'text' ),
                     'enqueue_script' => get_template_directory_uri() . '/library/js/blocks/list.js',
+
                     'supports'          => [
                         'align' => ['full'],
                     ]
@@ -1501,6 +1505,25 @@ GUTENBERG
                     'category'          => 'page-blocks',
                     'icon'              => 'admin-links',
                     'keywords'          => array( 'title', 'text' ),
+                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    
+                    'supports'          => [
+
+                        'align' => ['full'],
+                        // This property allows the block to be added multiple times. Defaults to true.
+                        // 'multiple'      => false,
+                    ]
+                ));
+
+                // register a Socials block.
+                acf_register_block_type(array(
+                    'name'              => 'socials',
+                    'title'             => __('Socials'),
+                    'description'       => __('A Custom Social Icon Section.'),
+                    'render_template'   => 'blocks/page/socials.php',
+                    'category'          => 'page-blocks',
+                    'icon'              => 'instagram',
+                    'keywords'          => array( 'social', 'socials', 'facebook', 'twitter', 'instagram' ),
                     // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
                     
                     'supports'          => [
@@ -1669,5 +1692,8 @@ GUTENBERG
 
 
 
+        // REMOVE P TAGS FROM CONTACT FORM 7
+
+        add_filter('wpcf7_autop_or_not', '__return_false'); 
 
         ?>

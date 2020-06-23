@@ -34,7 +34,8 @@
   }
 
   p,
-  a {
+  a,
+  label {
     font-size: 13px;
   }
 
@@ -44,6 +45,14 @@
     line-height: 2.8rem;
     height: 2.8rem;
     padding: 0 1.5rem;
+  }
+
+  input {
+    height: 2rem !important;
+  }
+
+  input[type="submit"] {
+    height: initial !important;
   }
 }
 

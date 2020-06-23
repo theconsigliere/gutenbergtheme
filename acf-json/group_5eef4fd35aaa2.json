@@ -3,6 +3,59 @@
     "title": "Block: Contact Section",
     "fields": [
         {
+            "key": "field_5ef1ee842d9ca",
+            "label": "Background Colour",
+            "name": "contact_background_colour",
+            "type": "color_picker",
+            "instructions": "Choose section's background colour.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_5ef1eec02d9cb",
+            "label": "Title",
+            "name": "form_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5ef1eecc2d9cc",
+            "label": "Description",
+            "name": "form_desc",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_5eef4fd36606d",
             "label": "Contact Form ID",
             "name": "contact_form_id",
@@ -39,5 +92,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1592741927
+    "modified": 1592913636
 }

@@ -106,3 +106,28 @@
     @include center-between;
   }
 }
+
+// FOOTER NOTICES
+
+.footer__notice_inner {
+  padding: 2vh 0;
+  @include center-center-column;
+  width: 90%;
+  margin: 0 auto;
+
+  @media (min-width: #{$screen-lg}) {
+    padding: 5vh 0;
+    width: 80%;
+    @include start-between;
+  }
+
+  .footer__notice_item {
+    flex: 1;
+    padding: 1em 0;
+    text-align: center;
+
+    @media (min-width: #{$screen-lg}) {
+      padding: 0 10px;
+    }
+  }
+}
