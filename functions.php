@@ -1116,7 +1116,7 @@ RELATED POSTS FUNCTION
                     'name'               => 'Advanced Custom Fields Pro', // The plugin name.
                     'slug'               => 'advanced-custom-fields-pro', // The plugin slug (typically the folder name).
                     'source'             => get_template_directory() . '/library/_plugins/advanced-custom-fields-pro.zip', // The plugin source.
-                    'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+                    'required'           => false, // If false, the plugin is only 'recommended' instead of required.
                     'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
                     'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
                     'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
@@ -1129,7 +1129,7 @@ RELATED POSTS FUNCTION
                     'name'               => 'All-in-One WP Migration', // The plugin name.
                     'slug'               => 'all-in-one-wp-migration', // The plugin slug (typically the folder name).
                     'source'             => get_template_directory() . '/library/_plugins/all-in-one-wp-migration.zip', // The plugin source.
-                    'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+                    'required'           => false, // If false, the plugin is only 'recommended' instead of required.
                     'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
                     'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
                     'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
