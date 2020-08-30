@@ -24,10 +24,6 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
-// Block preview
-if( !empty( $block['data']['is_preview'] ) ) { ?>
-    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Hero Full Width.jpg" alt="">
-<?php } 
 
 
 // Load values and assign defaults.
