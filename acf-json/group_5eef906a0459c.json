@@ -80,7 +80,7 @@
             "add_term": 1,
             "save_terms": 0,
             "load_terms": 0,
-            "return_format": "id",
+            "return_format": "object",
             "multiple": 0,
             "allow_null": 0
         }
@@ -100,7 +100,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1592758602
+    "modified": 1598720768
 }

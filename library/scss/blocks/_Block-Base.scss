@@ -39,6 +39,16 @@
     font-size: 13px;
   }
 
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .full-width-hero,
+  .js_hero__imageside_image {
+    background: $grey;
+  }
+
   .main-button,
   .block-button,
   .underline-button {

@@ -1,7 +1,7 @@
 (function($){
 
     /**
-     * initializeBlock
+     * List
      *
      * Adds custom JavaScript to the block HTML.
      *
@@ -12,17 +12,15 @@
      * @param   object attributes The block attributes (only available when editing).
      * @return  void
      */
-    var initializeBlock = function( ) {
-        const lists = document.querySelectorAll('.list__item')
+    var initializeBlock = function( $block ) {
 
+        const lists = $( $block ).find('.list__item')
 
-   //     console.log('list should work')
+        console.log(lists)
 
         if (lists) {
-
             function showList(event) {
 
-            
                 // get individual list item
                 let thisItem = event.target.closest('.list__item')
 
@@ -49,8 +47,9 @@
                 icon.children[1].classList.toggle('js_list__right')
             }
 
-            lists.forEach( list => {
-                list.addEventListener('click', showList)
+
+            lists.each( function() {
+                $(this).on("click", showList)
             })
         }
     }
@@ -58,7 +57,7 @@
     // Initialize each block on page load (front end).
     $(document).ready(function(){
         $('.list-section').each(function(){
-            initializeBlock( );
+            initializeBlock( $(this) );
         });
     });
 

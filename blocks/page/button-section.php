@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Hero Full-Width
+ *  Button Section
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -24,23 +24,32 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+// Block preview
+if( !empty( $block['data']['is_preview'] ) ) { ?>
+    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Button.jpg" alt="">
+<?php } 
+
+// Load values and assign defaults.
+$background = get_field('button_colour') ?: '#fff';
+$title = get_field('button_title') ?: 'Enter your title';
+$desc = get_field('button_desc') ?: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+$button = get_sub_field('button_button') ?: array('url' => '#', 'title' => 'button', 'target' => 'button');
+$buttonStyle = get_sub_field('button_style') ?: 'main-button';
+
 ?>
 
-<section id="<?php echo esc_attr($id); ?>" class="full-width-section" style='background: <?php the_field('button_colour'); ?>'>
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> full-width-section" style='background: <?php echo $background; ?>'>
     <div class="container">
 
         <div class="title-section button__title">
-            <h1><?php the_field('button_title'); ?></h1>
+            <h1><?php echo $title; ?></h1>
 
-            <?php 
+            <?php if ( $desc ) { ?>
 
-            $desc = get_field('button_desc');
-
-            if ( $desc ) { ?>
-
-                    <p><?php the_field('button_desc'); ?></p>
+                    <p><?php echo $desc; ?></p>
 
             <?php } ?>
+
 
         </div>
 
@@ -51,14 +60,15 @@ if( !empty($block['align']) ) {
 
                 <?php while (have_rows('button_button_group')) : the_row(); ?>
 
-                <?php 
-                    $link = get_sub_field('button_button');
-                    if( $link ): 
-                        $link_url = $link['url'];
-                        $link_title = $link['title'];
-                        $link_target = $link['target'] ? $link['target'] : '_self';
+                <?php
+                
+
+                    if( $button ): 
+                        $button_url = $button['url'];
+                        $button_title = $button['title'];
+                        $button_target = $button['target'] ? $button['target'] : '_self';
                         ?>
-                        <a class="<?php the_sub_field('button_style'); ?>" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                        <a class="<?php echo $buttonStyle; ?>" href="<?php echo esc_url( $button_url ); ?>" target="<?php echo esc_attr( $button_target ); ?>"><?php echo esc_html( $button_title ); ?></a>
                     <?php endif; ?>
 
 

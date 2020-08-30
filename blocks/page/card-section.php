@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Hero Full-Width
+ *  Card Section
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -24,11 +24,26 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+
+// Block preview
+if( !empty( $block['data']['is_preview'] ) ) { ?>
+    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Button.jpg" alt="">
+<?php } 
+
+// Load values and assign defaults.
+$subtitle = get_field('card_title') ?: 'Enter your title';
+$position = get_field('card_position') ?: 'middle__title';
+$link = get_sub_field('card_button') ?: array('url' => '#', 'title' => 'button', 'target' => 'button');
+// card image below
+$cardTitle = get_sub_field('card_title') ?: 'Enter your title';
+$cardDesc = get_sub_field('card_desc') ?: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+
 ?>
 
 
 
-<section id="<?php echo esc_attr($id); ?>" class='card-section'>
+
+<section id="<?php echo esc_attr($id); ?>" class='<?php echo esc_attr($className); ?> card-section'>
 
 
     <div class="full-width-section">
@@ -36,21 +51,16 @@ if( !empty($block['align']) ) {
 
         <?php 
 
-        $subtitle = get_field('card_title');
-
+    
         if ( $subtitle) { ?>
 
-
-            <div class="title-section <?php the_field('card_position'); ?>">
-                <h1><?php the_field('card_title'); ?></h1>
+            <div class="title-section <?php echo $position; ?>">
+                <h1><?php echo $subtitle; ?></h1>
             </div>
 
         <?php } ?>
 
         <div class="container">
-
-
-
 
 
             <div class="row">
@@ -62,24 +72,24 @@ if( !empty($block['align']) ) {
                     <div class="card__item">
                         <div class="card__item_image">
 
-                        <?php 
+                        <?php
 
-                            $image = get_sub_field('card_image');
+                        $cardPic = get_sub_field('card_image') ?: 275;
+                        
+                        if ( $cardPic ) { ?>
 
-                            if ( $image) { ?>
-
-                            <?php echo wp_get_attachment_image($image, 'full'); ?>
+                            <?php echo wp_get_attachment_image( $cardPic , 'full'); ?>
 
                             <?php } ?>
 
                         </div>
 
                         <div class="card_item__text">
-                            <h3><?php the_sub_field('card_title'); ?></h3>
-                            <p><?php the_sub_field('card_desc'); ?></p>
+                            <h3><?php echo $cardTitle ?></h3>
+                            <p><?php echo $cardDesc; ?></p>
 
                             <?php 
-                            $link = get_sub_field('card_button');
+                          
                             if( $link ): 
                                 $link_url = $link['url'];
                                 $link_title = $link['title'];

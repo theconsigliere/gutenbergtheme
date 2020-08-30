@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Hero Full-Width
+ *  Blog Section
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -24,12 +24,17 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+
+// Load values and assign defaults.
+$title = get_field('b_title') ?: 'Enter your title';
+
+
 ?>
 
 <section id="<?php echo esc_attr($id); ?>" class="column-section container-wrap">
 
     <div class="title-section">
-        <h2><?php the_field('b_title'); ?></h2>
+        <h2><?php echo $title; ?></h2>
     </div>
 
     <div class="no-padding-section container-wrap">

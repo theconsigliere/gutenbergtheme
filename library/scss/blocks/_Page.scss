@@ -497,10 +497,15 @@ table {
 
 .image__text_inner {
   max-width: 80%;
+  margin: 0 auto;
 }
 
 .image__item_desc {
   margin-top: 2rem;
+}
+
+.column-reverse {
+  flex-direction: column-reverse;
 }
 
 //------------------------------------------------------------

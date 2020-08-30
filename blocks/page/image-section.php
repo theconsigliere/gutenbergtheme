@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Hero Full-Width
+ *  Image Section
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -24,44 +24,65 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+// Block preview
+if( !empty( $block['data']['is_preview'] ) ) { ?>
+    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/image-section.jpg" alt="">
+<?php } 
+
+
+// Load values and assign defaults.
+$background = get_field('background_colour') ?: '#fff'; 
+$repeater = 'image_image_group';
+$flexibleContent = 'image_item';
+$textLayout = 'text_section';
+$imageLayout = 'image_section';
+$imageTitle = get_sub_field('image_title') ?: 'Enter your title';
+$imageDesc = get_sub_field('desc') ?: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+$link = get_sub_field('button') ?: array('url' => '#', 'title' => 'button', 'target' => 'button');
+// image variable below
+$imageTitleTwo = get_sub_field('image_image_title')  ?: 'Enter your title';
+$imageDescTwo = get_sub_field('image_image_desc') ?: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+
+
+
 ?>
 
 
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>   image__section" style="background: <?php the_field('background_colour'); ?>">
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>   image__section" style="background: <?php echo $background; ?>">
 
     <div class="container">
         
-        <div class="row">
-            <?php if (have_rows('image_image_group')) : ?>
+        <div class="row image-sections__js">
+            <?php if (have_rows( $repeater )) : ?>
            
-                    <?php while (have_rows('image_image_group')) : the_row(); ?>
+                    <?php while (have_rows( $repeater )) : the_row(); ?>
 
-                        <?php if (have_rows('image_item')) :   while (have_rows('image_item')) : the_row();
+                        <?php if (have_rows( $flexibleContent )) :   while (have_rows( $flexibleContent )) : the_row();
 
                             // Text Section
-                            if (get_row_layout() == 'text_section') : ?>
+                            if (get_row_layout() == $textLayout ) : ?>
 
                             <div class="image__item">
                                 <div class="image__text">
                                     <div class="image__text_inner">
 
     
-                                        <h1><?php the_sub_field('image_title'); ?></h1>
+                                        <h1><?php echo $imageTitle; ?></h1>
                                         <!-- <div class="underline"></div> -->
                                     
-                                        <?php if (get_sub_field('desc')) { ?>
-                                        <p class='full-width__desc'><?php the_sub_field('desc'); ?></p>
+                                        <?php if ( $imageDesc ) { ?>
+                                        <p class='full-width__desc'><?php echo $imageDesc; ?></p>
                                         <?php } ?>
 
 
                                         <?php 
-                                        $link = get_sub_field('button');
+                                       
                                         if( $link ): 
                                             $link_url = $link['url'];
                                             $link_title = $link['title'];
                                             $link_target = $link['target'] ? $link['target'] : '_self';
                                             ?>
-                                            <a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                                            <a class="main-button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
                                         <?php endif; ?>
                                     </div>
                                 </div>
@@ -70,26 +91,28 @@ if( !empty($block['align']) ) {
                             <?php
 
                             //  Image Section
-                            elseif (get_row_layout() == 'image_section') : ?>
+                            elseif (get_row_layout() == $imageLayout ) : ?>
 
                                 <div class="image__item_image">
-                                    <?php echo wp_get_attachment_image( get_sub_field('image_image'), 'full'); ?>
+
                               
-
+                                <?php  $image = get_sub_field('image_image') ?: 275; 
+                                 echo wp_get_attachment_image( $image , 'full'); ?>
+                              
                                     <?php 
-                                    $imagedesc = get_sub_field('image_image_title');
+                                    
 
-                                    if ( $imagedesc ) { ?>
+                                    if ( $imageTitleTwo ) { ?>
 
                                     <div class="image__item_desc">
 
                                             
-                                            <h4><?php the_sub_field('image_image_title'); ?></h4>
+                                            <h4><?php echo $imageTitleTwo; ?></h4>
 
 
-                                        <?php if ( get_sub_field('image_image_desc') ) { ?>
+                                        <?php if ( $imageDescTwo ) { ?>
                                             
-                                            <p><?php the_sub_field('image_image_desc'); ?></p>
+                                            <p><?php echo $imageDescTwo; ?></p>
 
                                         <?php  } ?>
                                             

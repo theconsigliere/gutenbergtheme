@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Hero Full-Width
+ *  Quote
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -24,12 +24,21 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+// Block preview
+if( !empty( $block['data']['is_preview'] ) ) { ?>
+    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Quote.jpg" alt="">
+<?php } 
+
+// Load values and assign defaults.
+
+$quote = get_field('quote') ?: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+
 ?>
 
 <section class="quote__section   <?php echo esc_attr($className); ?>" id="<?php echo esc_attr($id); ?>">
     <article class="container">
         <blockquote>
-            <h3><?php the_field('quote')?>
+            <h3><?php echo $quote; ?>
             </h3>
         </blockquote>
     </article>

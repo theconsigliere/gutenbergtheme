@@ -24,11 +24,16 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+// Block preview
+if( !empty( $block['data']['is_preview'] ) ) { ?>
+    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Hero Collage.jpg" alt="">
+<?php } 
+
 // Load values and assign defaults.
-$text = get_field('hero_title');
+$text = get_field('hero_title') ?: 'Enter your title';
 $images = get_field('hero_images');
-$background_color = get_field('hero_background');
-$text_color = get_field('hero_colour');
+$background_color = get_field('hero_background') ?: '#000';
+$text_color = get_field('hero_colour') ?: '#fff';
 $size = 'full'; // (thumbnail, medium, large, full or custom size)
 
 ?>

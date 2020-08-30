@@ -1258,25 +1258,46 @@ RELATED POSTS FUNCTION
         }
 
 
+
+
+
 /*********************
 GUTENBERG 
 *********************/
 
-       //ADDING CUSTOM STYLESHEET FOR ALL BLOCKS
+// REMOVE ALL BLOCK PATTERNS
+
+remove_theme_support( 'core-block-patterns' );
+
+     //ADDING CUSTOM STYLESHEET FOR ALL BLOCKS
 
 
      add_action( 'after_setup_theme', 'gutenberg_css' );
  
         function gutenberg_css(){
          
-           add_theme_support( 'editor-styles' ); // if you don't add this line, your stylesheet won't be added
+         add_theme_support( 'editor-styles' ); // if you don't add this line, your stylesheet won't be added
          add_editor_style( 'library/css/editor-styles.css' ); // tries to include style-editor.css directly from your theme folder
        }
+
+       // JS FILES TO INCLUDE ON ALL BLOCKS IN DASHBOARD EDITOR
+
+       function myguten_enqueue() {
+        // Slick Scripts
+        wp_enqueue_script('slick', get_template_directory_uri() . '/library/js/slick.min.js', array('jquery'), '', true);
+
+    }
+
+    add_action( 'enqueue_block_editor_assets', 'myguten_enqueue' );
+
+    // Enqueue javascript on the frontend as well
+    add_action('wp_enqueue_scripts', 'myguten_enqueue');
 
         // ALLOW WIDE IN GUTENBERG
 
         add_theme_support( 'align-wide' );
         
+
 
         // FILTER GUTENBERG BLOCKS WE DONT NEED
 
@@ -1356,27 +1377,38 @@ GUTENBERG
                 //* PAGE BLOCKS
                 // *********************/
 
-                // register a title Section block.
+                // Register a title Section block.
                 acf_register_block_type(array(
                     'name'              => 'title-section',
                     'title'             => __('Title Section'),
                     'description'       => __('A Custom Title Section.'),
                     'render_template'   => 'blocks/page/title-section.php',
                     'category'          => 'page-blocks',
-                    'icon'              => 'editor-paragraph',
+                    'icon'              => 'editor-textcolor',
                     'keywords'          => array( 'title', 'text' ),
-                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
-                  
+                    'align' => 'full',
                     'supports'          => [
-                        
-                        'align' => ['full'],
-                        // This property allows the block to be added multiple times. Defaults to true.
-                       // 'multiple'      => false,
-                    ]
+                      // customize alignment toolbar
+                    'align' => array( 'full' ),
+
+                    ],
+                    'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(
+                                'title'   => "Enter your title",
+                                'sub_title' => "Enter your sub title",
+                                'description'  => "Enter your description",
+                                'position' => 'middle__title',
+                                'is_preview'    => true
+                            )
+                        )
+                            )
+                            
                 ));
 
 
-                // register a Blog Section block.
+                // Register a Blog Section block.
                 acf_register_block_type(array(
                     'name'              => 'blog-section',
                     'title'             => __('Blog Section'),
@@ -1385,13 +1417,24 @@ GUTENBERG
                     'category'          => 'page-blocks',
                     'icon'              => 'editor-paragraph',
                     'keywords'          => array( 'blog', 'text' ),
-                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    'align' => 'full',
                     'supports'          => [
-                        'align' => ['full'],
-                    ]
+                        // customize alignment toolbar
+                      'align' => array( 'full' ),
+  
+                      ],
+                    'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(
+                                'b_title'   => "Enter your title",
+                                'is_preview'    => true
+                            )
+                        )
+                            )
                 ));
 
-                // register a Contact Section block.
+                // Register a Contact Section block.
                 acf_register_block_type(array(
                     'name'              => 'contact-section',
                     'title'             => __('Contact Section'),
@@ -1399,14 +1442,27 @@ GUTENBERG
                     'render_template'   => 'blocks/page/contact-section.php',
                     'category'          => 'page-blocks',
                     'icon'              => 'admin-comments',
-                    'keywords'          => array( 'contact', 'form' ),
-                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    'align' => 'full',
                     'supports'          => [
-                        'align' => ['full'],
-                    ]
+                        // customize alignment toolbar
+                      'align' => array( 'full' ),
+  
+                      ],
+                    'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(
+                                'form_title'   => "Enter your title",
+                                'form_desc'  => "Enter your description",
+                                'contact_form_id' => '[contact-form-7 id="5" title="Contact form 1"]',
+                                'is_preview'    => true
+                            )
+                        )
+                            ),
+                    'keywords'          => array( 'contact', 'form' )
                 ));
 
-                // register a Slideshow block.
+                // Register a Slideshow block.
                 acf_register_block_type(array(
                     'name'              => 'slideshow',
                     'title'             => __('Slideshow'),
@@ -1414,20 +1470,25 @@ GUTENBERG
                     'render_template'   => 'blocks/page/slideshow.php',
                     'category'          => 'page-blocks',
                     'icon'              => 'slides',
-                    'keywords'          => array( 'slideshow', 'slides', 'carousel' ),
-
-                    'enqueue_assets' => function(){ 
-                        // Slick Scripts
-                        wp_enqueue_script('slick', get_template_directory_uri() . '/library/js/slick.min.js', array('jquery'), '', true);
-
-                        wp_enqueue_script('user-slick', get_template_directory_uri() . '/library/js/blocks/user-slick.js', array('jquery'), '', true);
-                      },
+                    'align' => 'full',
                     'supports'          => [
-                        'align' => ['full'],
-                    ]
+                        // customize alignment toolbar
+                      'align' => array( 'full' ),
+  
+                      ],
+                      'example' => [
+                        'attributes' => [
+                            'mode' => false,
+                            'data' => ['is_example' => true],
+                        ]
+                        ],
+                    'keywords'          => array( 'slideshow', 'slides', 'carousel' ),
+                    'enqueue_assets' => function(){ 
+                        wp_enqueue_script('user-slick', get_template_directory_uri() . '/library/js/blocks/user-slick.js', array('jquery'), '', true);
+                      }
                 ));
 
-                // register a Content Section block.
+                // Register a Content Section block.
                 acf_register_block_type(array(
                     'name'              => 'content-section',
                     'title'             => __('Content Section'),
@@ -1436,13 +1497,24 @@ GUTENBERG
                     'category'          => 'page-blocks',
                     'icon'              => 'editor-contract',
                     'keywords'          => array( 'content', 'text', 'html', 'raw' ),
-                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(
+                                'content_area'   => "Enter your title",
+                                'is_preview'    => true
+                            )
+                        )
+                            ),
+                    'align' => 'full',
                     'supports'          => [
-                        'align' => ['full'],
-                    ]
+                        // customize alignment toolbar
+                      'align' => array( 'full' ),
+  
+                      ],
                 ));
 
-                // register a List Section block.
+                // Register a List Section block.
                 acf_register_block_type(array(
                     'name'              => 'list-section',
                     'title'             => __('List Section'),
@@ -1451,11 +1523,23 @@ GUTENBERG
                     'category'          => 'page-blocks',
                     'icon'              => 'list-view',
                     'keywords'          => array( 'List', 'text' ),
-                    'enqueue_script' => get_template_directory_uri() . '/library/js/blocks/list.js',
-
+                    'enqueue_assets' => function(){ 
+                        wp_enqueue_script('user-list', get_template_directory_uri() . '/library/js/blocks/list.js', array('jquery'), '', true);
+                      },
+                      'example'           => array(
+                        'attributes' => array(
+                            'mode' => false,
+                            'data' => array(                        
+                                'is_preview'    => true
+                            )
+                        )
+                        ),
+                    'align' => 'full',
                     'supports'          => [
-                        'align' => ['full'],
-                    ]
+                        // customize alignment toolbar
+                      'align' => array( 'full' ),
+  
+                      ]
                 ));
 
                 // register a Card Section block.
@@ -1467,14 +1551,20 @@ GUTENBERG
                     'category'          => 'page-blocks',
                     'icon'              => 'admin-page',
                     'keywords'          => array( 'card', 'section', 'options' ),
-                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
-                    
+                    'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(                        
+                                'is_preview'    => true
+                            )
+                        )
+                        ),
+                    'align' => 'full',
                     'supports'          => [
-                        
-                        'align' => ['full'],
-                        // This property allows the block to be added multiple times. Defaults to true.
-                        // 'multiple'      => false,
-                    ]
+                        // customize alignment toolbar
+                      'align' => array( 'full' ),
+  
+                      ],
                 ));
 
                 // register a Image Section block.
@@ -1486,14 +1576,23 @@ GUTENBERG
                     'category'          => 'page-blocks',
                     'icon'              => 'images-alt2',
                     'keywords'          => array( 'image', 'section', 'images' ),
-                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(                        
+                                'is_preview'    => true
+                            )
+                        )
+                        ),
+                    // make sure image is always on top if paired with text next to it on mobile
+                    'enqueue_script' => get_template_directory_uri() . '/library/js/blocks/min/image-section-min.js',
                     
+                    'align' => 'full',
                     'supports'          => [
-                        
-                        'align' => ['full'],
-                        // This property allows the block to be added multiple times. Defaults to true.
-                        // 'multiple'      => false,
-                    ]
+                        // customize alignment toolbar
+                      'align' => array( 'full' ),
+  
+                      ],
                 ));
 
                 // register a Button Section block.
@@ -1505,14 +1604,21 @@ GUTENBERG
                     'category'          => 'page-blocks',
                     'icon'              => 'admin-links',
                     'keywords'          => array( 'title', 'text' ),
-                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                                        'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(                        
+                                'is_preview'    => true
+                            )
+                        )
+                        ),
                     
+                    'align' => 'full',
                     'supports'          => [
-
-                        'align' => ['full'],
-                        // This property allows the block to be added multiple times. Defaults to true.
-                        // 'multiple'      => false,
-                    ]
+                        // customize alignment toolbar
+                      'align' => array( 'full' ),
+  
+                      ],
                 ));
 
                 // register a Socials block.
@@ -1524,14 +1630,21 @@ GUTENBERG
                     'category'          => 'page-blocks',
                     'icon'              => 'instagram',
                     'keywords'          => array( 'social', 'socials', 'facebook', 'twitter', 'instagram' ),
-                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                                        'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(                        
+                                'is_preview'    => true
+                            )
+                        )
+                        ),
                     
+                    'align' => 'full',
                     'supports'          => [
-
-                        'align' => ['full'],
-                        // This property allows the block to be added multiple times. Defaults to true.
-                        // 'multiple'      => false,
-                    ]
+                        // customize alignment toolbar
+                      'align' => array( 'full' ),
+  
+                      ],
                 ));
 
 
@@ -1548,15 +1661,22 @@ GUTENBERG
                         'category'          => 'hero-blocks',
                         'icon'              => 'desktop',
                         'keywords'          => array( 'hero', 'fullwidth', 'full', 'full-width' ),
-                         // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
-                      
-                        'supports'          => [
-
-                            'align' => ['full'],
-                            // This property allows the block to be added multiple times. Defaults to true.
-                            'multiple'      => false,
-                        ]
-                    
+                                              'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(                        
+                                'is_preview'    => true
+                            )
+                        )
+                        ),
+                         'align' => 'full',
+                         'supports'          => [
+                             // customize alignment toolbar
+                           'align' => array( 'full' ),
+                             // This property allows the block to be added multiple times. Defaults to true.
+                             'multiple'      => false,
+       
+                           ]
                 ));
 
                 // Hero Text Side Image Side 
@@ -1568,15 +1688,22 @@ GUTENBERG
                         'category'          => 'hero-blocks',
                         'icon'              => 'desktop',
                         'keywords'          => array( 'hero', 'text', 'image', '50-50' ),
-                            // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
-                        
-                        'supports'          => [
-
-                            'align' => ['full'],
-                            // This property allows the block to be added multiple times. Defaults to true.
-                            'multiple'      => false,
-                        ]
-                    
+                                                 'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(                        
+                                'is_preview'    => true
+                            )
+                        )
+                        ),
+                            'align' => 'full',
+                            'supports'          => [
+                                // customize alignment toolbar
+                              'align' => array( 'full' ),
+                                // This property allows the block to be added multiple times. Defaults to true.
+                                'multiple'      => false,
+          
+                              ]
                 ));
 
                 // Hero Video 
@@ -1588,14 +1715,22 @@ GUTENBERG
                     'category'          => 'hero-blocks',
                     'icon'              => 'desktop',
                     'keywords'          => array( 'hero', 'video' ),
-                        // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
-                    
-                    'supports'          => [
-                        'align' => ['full'],
-                        // This property allows the block to be added multiple times. Defaults to true.
-                        'multiple'      => false,
-                    ]
-                
+                                             'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(                        
+                                'is_preview'    => true
+                            )
+                        )
+                        ),
+                        'align' => 'full',
+                        'supports'          => [
+                            // customize alignment toolbar
+                          'align' => array( 'full' ),
+                            // This property allows the block to be added multiple times. Defaults to true.
+                            'multiple'      => false,
+      
+                          ],
             ));
 
 
@@ -1608,15 +1743,22 @@ GUTENBERG
                         'category'          => 'hero-blocks',
                         'icon'              => 'desktop',
                         'keywords'          => array( 'hero', 'collage' ),
-                         // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
-                      
-                        'supports'          => [
-
-                            'align' => ['full'],
-                            // This property allows the block to be added multiple times. Defaults to true.
-                            'multiple'      => false,
-                        ]
-               
+                                              'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(                        
+                                'is_preview'    => true
+                            )
+                        )
+                        ),
+                         'align' => 'full',
+                         'supports'          => [
+                             // customize alignment toolbar
+                           'align' => array( 'full' ),
+                             // This property allows the block to be added multiple times. Defaults to true.
+                             'multiple'      => false,
+       
+                           ]
                     
                     ));
 
@@ -1635,14 +1777,19 @@ GUTENBERG
                     'category'          => 'post-blocks',
                     'icon'              => 'admin-users',
                     'keywords'          => array( 'author', 'post' ),
-                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
-                  
+                    'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(                        
+                                'is_preview'    => true
+                            )
+                        )
+                        ),
+                    'align' => 'full',
                     'supports'          => [
-                        
-                        'align' => ['full'],
-                        // This property allows the block to be added multiple times. Defaults to true.
-                       // 'multiple'      => false,
-                    ]
+                        // customize alignment toolbar
+                      'align' => array( 'full' ),  
+                      ],
                 ));
                 
                 // register Quote block.
@@ -1654,14 +1801,19 @@ GUTENBERG
                     'category'          => 'post-blocks',
                     'icon'              => 'format-quote',
                     'keywords'          => array( 'quote', 'post' ),
-                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
-                  
+                    'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(                        
+                                'is_preview'    => true
+                            )
+                        )
+                        ),
+                    'align' => 'full',
                     'supports'          => [
-                        
-                        'align' => ['full'],
-                        // This property allows the block to be added multiple times. Defaults to true.
-                       // 'multiple'      => false,
-                    ]
+                        // customize alignment toolbar
+                      'align' => array( 'full' ),  
+                      ],
                 ));
 
                 // register Display Post block.
@@ -1674,13 +1826,11 @@ GUTENBERG
                     'icon'              => 'admin-post',
                     'keywords'          => array( 'display', 'post', 'blogs', 'article' ),
                     // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
-                  
+                    'align' => 'full',
                     'supports'          => [
-                        
-                        'align' => ['full'],
-                        // This property allows the block to be added multiple times. Defaults to true.
-                       // 'multiple'      => false,
-                    ]
+                        // customize alignment toolbar
+                      'align' => array( 'full' ),  
+                      ],
                 ));
 
                 

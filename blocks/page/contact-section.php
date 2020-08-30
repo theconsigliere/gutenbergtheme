@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Hero Full-Width
+ *  Contact Section
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -24,6 +24,12 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+// Load values and assign defaults.
+$title = get_field('form_title') ?: 'Enter your title';
+$desc = get_field('form_desc') ?: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+$formID = get_field('contact_form_id') ?: '[contact-form-7 id="5" title="Contact form 1"]';
+
+
 ?>
 
 
@@ -37,13 +43,7 @@ if( !empty($block['align']) ) {
                 <p><?php the_field('form_desc'); ?></p>
             </div>
             <div class="column column-60 column-center">
-                <?php 
-
-                $form_id = get_field('contact_form_id'); 
-                echo do_shortcode($form_id); 
-
-                ?>
-
+                <?php echo do_shortcode($formID); ?>
             </div>
         </div>
 

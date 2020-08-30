@@ -22,9 +22,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_5eefb28567e98",
+            "key": "field_5f4a9f788b00b",
             "label": "Display Posts",
-            "name": "blogs",
+            "name": "display_posts",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -34,16 +34,15 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": "",
+            "post_type": [
+                "post"
+            ],
             "taxonomy": "",
             "filters": [
-                "search",
                 "post_type",
                 "taxonomy"
             ],
-            "elements": [
-                "featured_image"
-            ],
+            "elements": "",
             "min": "",
             "max": "",
             "return_format": "object"
@@ -64,7 +63,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1592767365
+    "modified": 1598726657
 }

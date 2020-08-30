@@ -17,9 +17,9 @@
             },
             "collapsed": "",
             "min": 0,
-            "max": 0,
+            "max": 2,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Column",
             "sub_fields": [
                 {
                     "key": "field_5ee7bda0ae221",
@@ -152,7 +152,7 @@
                             "max": ""
                         }
                     },
-                    "button_label": "Add Column",
+                    "button_label": "Add Section",
                     "min": "",
                     "max": ""
                 }
@@ -174,7 +174,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1592247793
+    "modified": 1598729772
 }

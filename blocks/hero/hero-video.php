@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Hero Full-Width
+ *  Hero Video
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -16,7 +16,7 @@ if( !empty($block['anchor']) ) {
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'hero-video';
+$className = 'video-hero-header';
 if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
@@ -24,18 +24,26 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+// Block preview
+if( !empty( $block['data']['is_preview'] ) ) { ?>
+    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Hero Video.jpg" alt="">
+<?php } 
+
+// Load values and assign defaults.
+$iframe = get_field('hero_video') ?: "https://player.vimeo.com/video/340438724";
+$color = get_field('video_colour') ?: '#0000001A';
+$title = get_field('video_title') ?: 'Enter your title';
+$videoImage = get_field('video_image');
+
+
 ?>
 
 
-<div class="video-hero-header"  id="<?php echo esc_attr($id); ?>">
+<div class="<?php echo esc_attr($className); ?>"  id="<?php echo esc_attr($id); ?>">
 
     <div class="video-hero-image embed-container">
 
-
         <?php
-
-        // Load value.
-        $iframe = get_field('hero_video');
 
         // Use preg_match to find iframe src.
         preg_match('/src="(.+?)"/', $iframe, $matches);
@@ -63,12 +71,12 @@ if( !empty($block['align']) ) {
         // Display customized HTML.
         echo $iframe;
         ?>
-                <div class="video-overlay" style="background-color:<?php the_field('video_colour'); ?>"></div>
+                <div class="video-overlay" style="background-color:<?php echo $color; ?>"></div>
      </div>
 
             <div class="video-hero-text">
-                <?php echo wp_get_attachment_image(get_field('video_image'), 'full', '', array('class'=>'video__logo')); ?>
-                <h1 class='white zero'><?php the_field('video_title'); ?></h1>
+                <?php echo wp_get_attachment_image( $videoImage , 'full', '', array('class'=>'video__logo')); ?>
+                <h1 class='white zero'><?php echo $title; ?></h1>
             </div>
 
 

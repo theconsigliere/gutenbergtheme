@@ -1,8 +1,8 @@
 <?php
 
 /**
- *  Hero Full-Width
- *
+ *  Content Section
+ * 
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
  * @param   bool $is_preview True during AJAX preview.
@@ -24,13 +24,17 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+
+// Load values and assign defaults.
+$contentArea = get_field('content_area') ?: '<h1>Enter your title</h1>';
+
 ?>
 
 <section class='<?php echo esc_attr($className); ?>' id="<?php echo esc_attr($id); ?>">
 
     <div class="content-section">
 
-        <?php the_field('content_area'); ?>
+        <?php echo $contentArea; ?>
 
     </div>
     

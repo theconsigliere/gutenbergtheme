@@ -24,13 +24,19 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+// Block preview
+if( !empty( $block['data']['is_preview'] ) ) { ?>
+    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Hero Full Width.jpg" alt="">
+<?php } 
+
+
 // Load values and assign defaults.
-$heroimage = get_field('hero_image');
-$position = get_field('text_position');
-$title = get_field('hero_title');
-$subtitle = get_field('hero_sub_title');
-$desc = get_field('hero_desc');
-$button = get_field('hero_button');
+$heroimage = get_field('hero_image') ?: '275';
+$position = get_field('text_position') ?: 'middle_title';
+$title = get_field('hero_title') ?: 'Enter your title';
+$subtitle = get_field('hero_sub_title') ?: 'Lorem ipsum dolor sit amet';
+$desc = get_field('hero_desc') ?: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+$button = get_field('hero_button') ?: array('url' => '#', 'title' => 'Social', 'target' => 'button');
 
 ?>
 

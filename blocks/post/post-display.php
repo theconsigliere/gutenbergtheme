@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Hero Full-Width
+ *  Post Display
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -24,6 +24,13 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+
+// Load values and assign defaults.
+
+
+$title = get_field('blogs_title') ?: 'Enter your title';
+$posts = get_field('display_posts');
+
 ?>
 
 
@@ -32,19 +39,18 @@ if( !empty($block['align']) ) {
     <div class="container">
         <?php 
 
-        $title = get_field('blogs_title');
 
         if ( $title) { ?>
 
         <div class="blog__title-section">
-            <h3><?php the_field('blogs_title'); ?></h3>
+            <h3><?php echo $title; ?></h3>
         </div>
 
         <?php } ?>
 
         <?php 
 
-        $posts = get_field('blogs');
+      
 
         if( $posts ): ?>
         

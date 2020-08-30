@@ -372,6 +372,160 @@
 		"oAP": "/blocks/post/quote.php",
 		"oF": 0
 		},
+	"/blocks/preview/Author.jpg": {
+		"ft": 16384,
+		"iS": 65256,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/Author.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/Button.jpg": {
+		"ft": 16384,
+		"iS": 96560,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/Button.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/Card.jpg": {
+		"ft": 16384,
+		"iS": 308327,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/Card.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/Default.jpg": {
+		"ft": 16384,
+		"iS": 39175,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/Default.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/Hero Collage.jpg": {
+		"ft": 16384,
+		"iS": 405681,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/Hero Collage.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/Hero Full Width.jpg": {
+		"ft": 16384,
+		"iS": 95953,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/Hero Full Width.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/Hero text-image.jpg": {
+		"ft": 16384,
+		"iS": 225280,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/Hero text-image.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/Hero Video.jpg": {
+		"ft": 16384,
+		"iS": 308678,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/Hero Video.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/image-section.jpg": {
+		"ft": 16384,
+		"iS": 419728,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/image-section.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/List.jpg": {
+		"ft": 16384,
+		"iS": 110905,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/List.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/Quote.jpg": {
+		"ft": 16384,
+		"iS": 222742,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/Quote.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/Slideshow.jpg": {
+		"ft": 16384,
+		"iS": 140414,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/Slideshow.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/Socials.jpg": {
+		"ft": 16384,
+		"iS": 44219,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/Socials.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/blocks/preview/Title.jpg": {
+		"ft": 16384,
+		"iS": 52544,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/blocks/preview/Title.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"/comments.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -581,6 +735,17 @@
 		"sC": 3,
 		"tS": 1
 		},
+	"/library/js/blocks/image-section.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 1,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/library/js/blocks/min/image-section-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
+		},
 	"/library/js/blocks/list.js": {
 		"bF": 0,
 		"ft": 64,
@@ -591,6 +756,25 @@
 		"oF": 0,
 		"sC": 3,
 		"tS": 1
+		},
+	"/library/js/blocks/min/image-section-min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 1,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/library/js/blocks/min/min/image-section-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
+		},
+	"/library/js/blocks/min/image-section-min.js.map": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/library/js/blocks/min/image-section-min.js.map",
+		"oF": 0
 		},
 	"/library/js/blocks/min/list-min.js": {
 		"bF": 0,
@@ -991,7 +1175,7 @@
 		"oS": 3,
 		"sct": 1
 		},
-	"/library/scss/blocks/_Prefooter.scss": {
+	"/library/scss/blocks/_Socials.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 10,
@@ -999,7 +1183,7 @@
 		"ft": 4,
 		"ma": 1,
 		"oA": 1,
-		"oAP": "/library/scss/css/_Prefooter.css",
+		"oAP": "/library/scss/css/_Socials.css",
 		"oF": 0,
 		"oS": 3,
 		"sct": 1
@@ -1424,7 +1608,7 @@
 	},
 "projectAttributes": {
 	"creationDate": 592135501.51721895,
-	"displayValue": "gutenbergtheme",
+	"displayValue": "gutenberg",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets-tar",
 	"iconImageWasSetByUser": 0

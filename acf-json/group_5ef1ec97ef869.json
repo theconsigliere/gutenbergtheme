@@ -59,7 +59,7 @@
                     "save_format": "element",
                     "allow_null": 0,
                     "show_preview": 1,
-                    "enqueue_fa": 0,
+                    "enqueue_fa": 1,
                     "fa_live_preview": "",
                     "choices": []
                 }
@@ -81,7 +81,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1592913319
+    "modified": 1598785772
 }

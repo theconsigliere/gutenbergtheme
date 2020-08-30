@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Hero Full-Width
+ *  Author
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -24,6 +24,19 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+// Load values and assign defaults.
+
+$authorName = get_field('author_name') ?: 'John Doe';
+$authorDate = get_field('author_date');
+$terms = get_field('author_category');
+
+
+// Block preview
+if( !empty( $block['data']['is_preview'] ) ) { ?>
+    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Author.jpg" alt="">
+<?php } 
+
+
 ?>
 
 
@@ -35,7 +48,7 @@ if( !empty($block['align']) ) {
             
                     <?php 
 
-                    $image = get_field('author_image');
+                    $image = get_field('author_image') ?: 275;
 
                     if ( $image) { ?>
 
@@ -50,9 +63,9 @@ if( !empty($block['align']) ) {
 
                 <div class="author__desc">
 
-                <p class='uppercase'><?php echo esc_html( 'Written By' ); ?></p>
-                    <h4><?php the_field('author_name'); ?></h4>
-                    <h6><?php the_field('author_date'); ?></h6>
+                    <p class='uppercase'><?php echo esc_html( 'Written By' ); ?></p>
+                    <h4><?php echo $authorName; ?></h4>
+                    <h6><?php echo $authorDate; ?></h6>
 
                 </div>
             </div>
@@ -60,10 +73,11 @@ if( !empty($block['align']) ) {
             <div class="author__categories">
 
                 <?php 
-                $terms = get_field('author_category');
+              
                 if( $terms ): ?>
                    
                     <?php foreach( $terms as $term ): ?>
+
                         <a class='block-button' href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?></a>
                     <?php endforeach; ?>
 

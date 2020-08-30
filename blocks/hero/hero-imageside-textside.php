@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Hero Full-Width
+ *  Hero Image Side / Text Side
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -24,47 +24,64 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+// Block preview
+if( !empty( $block['data']['is_preview'] ) ) { ?>
+    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Hero text-image.jpg" alt="">
+<?php } 
+
+// Load values and assign defaults.
+$column = 'hero_column';
+$flexibleContent = 'hero_item';
+$titleSection = 'hero_title_section';
+$imageSection = 'hero_image_section';
+$subtitle = get_sub_field('hero_sub_title') ?: 'Lorem ipsum dolor sit amet';
+$title = get_sub_field('hero_title') ?: 'Enter your title';
+$desc = get_sub_field('hero_desc') ?: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+$link = get_sub_field('hero_button') ?: array('url' => '#', 'title' => 'Social', 'target' => 'button');
+$heroimage = get_sub_field('hero_imageside');
+
+
 ?>
 
 
-<div class="<?php echo esc_attr($className); ?>"  id="hero-textside-imageside">
+<div class="<?php echo esc_attr($className); ?>"  id="<?php echo esc_attr($id); ?>">
 
 
     <?php
 
     // COLUMN REPEATER
-    if( have_rows('hero_column') ): ?>
+    if( have_rows( $column ) ): ?>
 
     
-        <?php while ( have_rows('hero_column') ) : the_row(); ?>
+        <?php while ( have_rows( $column ) ) : the_row(); ?>
 
            
         <?php // FLEXIBLE CONTENT IN COLUMNS ?>
 
-            <?php if (have_rows('hero_item')) : while (have_rows('hero_item')) : the_row();
+            <?php if (have_rows($flexibleContent)) : while (have_rows($flexibleContent)) : the_row();
 
                         // Title Section
-                        if (get_row_layout() == 'hero_title_section') : ?>
+                        if (get_row_layout() == $titleSection ) : ?>
 
                             <div class="hero__column">
 
                                 <div class="hero__text">
                                     <div class="hero__text_inner">
 
-                                    <?php if (get_sub_field('hero_sub_title')) { ?>
-                                        <h6 class='js_textside__sub_title uppercase font-bold-title sub_title'><span class='hero-line'></span><?php the_sub_field('hero_sub_title'); ?></h6>
+                                    <?php if ( $subtitle ) { ?>
+                                        <h6 class='js_textside__sub_title uppercase font-bold-title sub_title'><span class='hero-line'></span><?php echo $subtitle; ?></h6>
                                         <?php } ?>
         
-                                        <h1 class='js_textside__title'><?php the_sub_field('hero_title'); ?></h1>
+                                        <h1 class='js_textside__title'><?php echo $title; ?></h1>
                                         <!-- <div class="underline"></div> -->
                                     
-                                        <?php if (get_sub_field('hero_desc')) { ?>
-                                        <p class='full-width__desc js_textside__desc'><?php the_sub_field('hero_desc'); ?></p>
+                                        <?php if ( $desc ) { ?>
+                                        <p class='full-width__desc js_textside__desc'><?php echo $desc; ?></p>
                                         <?php } ?>
                                        
                             
                                         <?php 
-                                        $link = get_sub_field('hero_button');
+                                       
                                         if( $link ): 
                                             $link_url = $link['url'];
                                             $link_title = $link['title'];
@@ -80,10 +97,19 @@ if( !empty($block['align']) ) {
                         <?php
 
                         //  Image Section
-                        elseif (get_row_layout() == 'hero_image_section') : ?>
+                        elseif (get_row_layout() == $imageSection ) : ?>
 
                         <div class="hero__column js_hero__imageside">
-                            <?php echo wp_get_attachment_image( get_sub_field('hero_imageside'), 'full', '', array('class'=>'js_hero__imageside_image')); ?>
+                       
+                            <?php 
+                            
+                            $heroimage = get_sub_field('hero_imageside');
+
+                            if (!empty($heroimage)) : ?>
+                            
+                                <?php echo wp_get_attachment_image( $heroimage, 'full', '', array('class'=>'js_hero__imageside_image')); ?>
+                            <?php endif; ?>
+
                         </div>
 
                         <?php endif;

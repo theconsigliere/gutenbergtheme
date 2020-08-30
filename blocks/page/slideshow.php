@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  Hero Full-Width
+ *  Slideshow
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -24,9 +24,18 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
+// Block preview
+if( !empty( $block['data']['is_example'] ) ) { ?>
+    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Slideshow.jpg" alt="">
+<?php } 
+
+// Load values and assign defaults.
+$imageTitle = get_sub_field('s_title') ?: 'Enter your title';
+
+
 ?>
 
-<section class='slider__section    <?php echo esc_attr($className); ?>' id="<?php echo esc_attr($id); ?>">
+<section class='slider__section  <?php echo esc_attr($className); ?>' id="<?php echo esc_attr($id); ?>">
     <div class="container-wrap">
 
         <?php if (have_rows('slider_group')) : ?>
@@ -36,10 +45,10 @@ if( !empty($block['align']) ) {
                 <?php while (have_rows('slider_group')) : the_row(); ?>
                     <div class="swiper-slide carousel-cell">
 
-                        <?php echo wp_get_attachment_image(get_sub_field('s_image'), 'full');   ?>
+                        <?php echo wp_get_attachment_image( get_sub_field('s_image'), 'full');   ?>
 
                         <div class="swiper-slide__content">
-                            <h1 class='white'><?php the_sub_field('s_title');?></h1>
+                            <h1 class='white'><?php echo $imageTitle; ?></h1>
                         </div>
             
                     </div>
