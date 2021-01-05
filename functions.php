@@ -1326,6 +1326,7 @@ remove_theme_support( 'core-block-patterns' );
                 'acf/slideshow',
                 'acf/contact-section',
                 'acf/list-section',
+                'acf/gallery',
                 // Hero Blocks
                 'acf/hero-collage',
                 'acf/hero-fullwidth',
@@ -1595,6 +1596,33 @@ remove_theme_support( 'core-block-patterns' );
                       ],
                 ));
 
+                // register a Gallery Section block.
+                acf_register_block_type(array(
+                    'name'              => 'gallery',
+                    'title'             => __('Gallery'),
+                    'description'       => __('A Custom Gallery Section.'),
+                    'render_template'   => 'blocks/page/gallery.php',
+                    'category'          => 'page-blocks',
+                    'icon'              => 'embed-photo',
+                    'keywords'          => array( 'image', 'section', 'images', 'gallery' ),
+                    'example'           => array(
+                        'attributes' => array(
+                            'mode' => 'preview',
+                            'data' => array(                        
+                                'is_preview'    => true
+                            )
+                        )
+                    ),
+                    'enqueue_assets' => function(){ 
+                        wp_enqueue_script('gallery', get_template_directory_uri() . '/library/js/blocks/min/gallery-min.js', array(), '', true);
+                        },
+                    'align' => 'full',
+                    'supports'          => [
+                        // customize alignment toolbar
+                        'align' => array( 'full' ),
+                        ],
+                ));
+
                 // register a Button Section block.
                 acf_register_block_type(array(
                     'name'              => 'button-section',
@@ -1845,5 +1873,16 @@ remove_theme_support( 'core-block-patterns' );
         // REMOVE P TAGS FROM CONTACT FORM 7
 
         add_filter('wpcf7_autop_or_not', '__return_false'); 
+
+
+
+        function mgc_gutenberg_filter( $use_block_editor, $post_type ) {
+            if ( 'post' === $post_type ) {
+                return false;
+            }
+            return $use_block_editor;
+        }
+        add_filter( 'use_block_editor_for_post_type', 'mgc_gutenberg_filter', 10, 2 );
+
 
         ?>

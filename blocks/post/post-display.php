@@ -29,7 +29,8 @@ if( !empty($block['align']) ) {
 
 
 $title = get_field('blogs_title') ?: 'Enter your title';
-$posts = get_field('display_posts');
+$terms = get_field('display_posts');
+$number = get_field('number_posts');
 
 ?>
 
@@ -52,38 +53,61 @@ $posts = get_field('display_posts');
 
       
 
-        if( $posts ): ?>
-        
+        if( $terms ): ?>
+
+
+        <!-- add extra blog items -->
+
         <div class="blog__holder">
-            <?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
-                <?php setup_postdata($post); ?>
-            
 
-                <a class="blog-item" href="<?php the_permalink(); ?>">
-                    <article class='blog-item__inner'>
-                        <div class="blog__image">
-                            <?php the_post_thumbnail('full'); ?>
-                        </div>
+            <?php
+                    // organise our options into a data object
+                    $args = array(
+                        'posts_per_page' => $number,
+                        'orderby' => 'rand',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'category',
+                                'field'    => 'term',
+                                'terms'    =>  $terms,
+                            ),
+                        ),
+                    );
+                    // a variable with our query and options
+                    $query = new WP_Query( $args );
+                    // do a loop with our new query code 
+
+                  
+                    
+                    if ($query->have_posts()): while ($query->have_posts()): $query->the_post();  ?>
 
 
-                        <h4><?php the_title(); ?></h4>
-                        <h6><?php the_date(); ?></h6>
-                        <!-- only output first 32 words -->
-                        <p><?php echo wp_trim_words(get_the_excerpt(), 32); ?></p>
+            <?php $post_id = get_the_ID(); ?>
 
-                        <div class="byline">
-                            
-                                <?php foreach((get_the_category()) as $category): ?>
-                                   <div class="block-button"><?php echo esc_html( $category->name ); ?></div>
-                                <?php endforeach; ?>
-                        </div>
+            <div class="blog-item">
+                <article class="blog-item__inner">
 
-                    </article>
-                </a>
-            <?php endforeach; ?>
+                    <div class="blog__image">
+                        <?php echo wp_get_attachment_image( get_field('article_hero', $post_id), 'full'); ?>
+                    </div>
+
+                    <h4><?php the_field('article_title', $post_id ); ?></h4>
+                    <p><?php the_field('article_date', $post_id); ?></p>
+                    <!-- our inner element takes up the full width and height -->
+                    <div class="byline">
+                        <p><?php the_field('quote', $post_id); ?></p>
+                    </div>
+
+
+                    <a class="block-button" href="<?php the_permalink( $post ); ?>">Full Article</a>
+
+                </article>
+            </div>
+
+            <?php endwhile; endif; ?>
         </div>
-        
-            <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+
+        <?php wp_reset_query(); ?>
         <?php endif; ?>
     </div>
 

@@ -2,6 +2,7 @@
 // ––––––––––––––––––––––––––––––––––––––––––––––––––
 .title-section {
   padding: 5vh 0;
+  text-align: center;
   //  padding-top: 0;
 
   .title_title__section {
@@ -887,3 +888,98 @@ input[type="radio"] {
   font-weight: normal;
   margin-left: 0.5rem;
 }
+
+
+//------------------------------------------------------------
+// Gallery Section
+//------------------------------------------------------------
+//------------------------------------------------------------
+
+
+.gallery__section {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+}
+.gallery-section-full {
+  @include center-center-column;
+  padding: 2rem;
+  flex-wrap: wrap;
+
+  @media (min-width: #{$screen-lg}) {
+    @include start-start;
+  }
+
+  
+      img {
+        min-width: 22%;
+        max-width: 25%;
+        object-fit: cover;
+        flex: 1;
+        margin: 10px;
+        height: 25vh;
+        cursor: pointer;
+      }
+    }
+
+
+
+    .gallery-modal {
+      position: fixed;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 99;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s;
+
+      figure {
+        height: 100%;
+        display: grid;
+        margin: 0;
+        grid-template-rows: 1fr auto;
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+
+      figcaption {
+        padding: 10px;
+      }
+    }
+
+    .gallery-modalInner {
+      border-radius: 4px;
+      background: white;
+      box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.05);
+      transform: translateY(-100vh);
+      transition: all 0.5s;
+      max-width: 1000px;
+      height: calc(100vh - 100px);
+      display: grid;
+      grid-template-columns: 50px 1fr 50px;
+      color: black;
+      margin: 3rem;
+    }
+
+
+    .gallery-modal.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+
+
+    .gallery-modal.open .gallery-modalInner {
+      transform: translateY(0);
+    }
