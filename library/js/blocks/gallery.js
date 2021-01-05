@@ -65,7 +65,6 @@ function Gallery(gallery) {
       modal.querySelector('h2').textContent = el.title;
       modal.querySelector('figure p').textContent = el.dataset.description;
       currentImage = el;
-      console.log(currentImage, 'element next sibling is' + currentImage.nextElementSibling + 'or gallery first element child is' + gallery.firstElementChild);
       openModal();
     }
   
