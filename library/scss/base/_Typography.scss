@@ -1,37 +1,25 @@
 // Typography
 // ––––––––––––––––––––––––––––––––––––––––––––––––––
 
-// Heebo
-@import url("https://fonts.googleapis.com/css?family=Heebo:300,400,700&display=swap");
-
-// IBM Plex Sans
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,700&display=swap");
-
+// Inter Var
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
 // Meno-banner
 @import url("https://use.typekit.net/qpu8tiq.css");
 
-@font-face {
-  font-family: "Inter var";
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-  src: url(./library/scss/fonts/Inter-upright-var.woff2) format("woff2");
-}
-
-@font-face {
+// WEB FONTS
+// --------------------------------------
+/* @font-face {
   font-family: "Inter var";
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
   src: url(./library/scss/fonts/Inter-italic-var.woff2) format("woff2");
-}
+} */
 
-// $text-font: 'Heebo', sans-serif
-// $text-font: "IBM Plex Sans", sans-serif;
 
 $cursive-font: "meno-banner", serif;
-$headline-font: "Inter var", sans-serif;
-$text-font: "Inter var", sans-serif;
+$headline-font: "Inter", sans-serif;
+$text-font: "Inter", sans-serif;
 
 // Font Weight
 
@@ -230,4 +218,19 @@ li {
 .uppercase {
   text-transform: uppercase;
   letter-spacing: 3px;
+}
+
+
+p.source-org.copyright {
+  font-size: 1rem;
+
+  .dashicons {
+    width: 1.2em;
+    height: 1.2em;
+    font-size: 1.5em;
+  }
+
+  a{
+    font-size: 1rem;
+  }
 }

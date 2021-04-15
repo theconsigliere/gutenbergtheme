@@ -48,7 +48,6 @@
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
     <?php endif; ?>
 
-<script type='text/javascript' src='<?php echo get_site_url(); ?>/wp-content/plugins/advanced-custom-fields/assets/js/acf-input.min.js'></script>
 
     <?php wp_head(); ?>
 
