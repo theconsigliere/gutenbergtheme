@@ -1264,6 +1264,12 @@ RELATED POSTS FUNCTION
                 'menu_title'	=> 'Footer',
                 'parent_slug'	=> 'theme-general-settings',
             ));
+
+            acf_add_options_sub_page(array(
+                'page_title' 	=> 'Theme Analytics Settings',
+                'menu_title'	=> 'Analytics',
+                'parent_slug'	=> 'theme-general-settings',
+            ));
             
         }
 
@@ -1895,4 +1901,10 @@ remove_theme_support( 'core-block-patterns' );
         add_filter( 'use_block_editor_for_post_type', 'mgc_gutenberg_filter', 10, 2 );
 
 
+        // REMOVE FORMATING FROM WYSIWYG 
+
+        function acf_wysiwyg_remove_wpautop() {
+            remove_filter('acf_the_content', 'wpautop' );
+        }
+        add_action('acf/init', 'acf_wysiwyg_remove_wpautop', 15);
         ?>

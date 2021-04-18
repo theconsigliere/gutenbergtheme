@@ -18,10 +18,22 @@
      */
     ?>
 
-    <?php // drop Google Analytics here 
-    ?>
-    <?php // end analytics 
-    ?>
+    <?php // Analytics login to 'dashboard theme settings > analytics' to change values ?>
+    
+   <?php 
+   $google = get_field('google_analytics', 'option');
+   $fb = get_field('facebook_pixel', 'option');
+   
+   if ($google):
+    echo $google;
+   endif; 
+
+   if ($fb):
+    echo $fb;
+   endif;
+   
+     ?>
+  
 
     <?php // See everything you need to know about the <head> here: https://github.com/joshbuchea/HEAD 
     ?>
