@@ -655,12 +655,12 @@
       "oAP" : "\/library\/_plugins\/advanced-custom-fields-pro.zip",
       "oF" : 0
     },
-    "\/library\/_plugins\/all-in-one-wp-migration.zip" : {
+    "\/library\/_plugins\/all-in-one-wp-migration-unlimited-extension.zip" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/library\/_plugins\/all-in-one-wp-migration.zip",
+      "oAP" : "\/library\/_plugins\/all-in-one-wp-migration-unlimited-extension.zip",
       "oF" : 0
     },
     "\/library\/_plugins\/custom-post-type.php" : {
@@ -799,283 +799,226 @@
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/blocks\/gallery.js" : {
+    "\/library\/js\/frontend\/gsap\/gsap-user.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 1,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/gallery-min.js",
+      "oAP" : "\/library\/js\/frontend\/gsap\/min\/gsap-user-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/blocks\/image-section.js" : {
+    "\/library\/js\/frontend\/header.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 1,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/image-section-min.js",
+      "oAP" : "\/library\/js\/frontend\/min\/header-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/blocks\/list.js" : {
+    "\/library\/js\/frontend\/modal.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 1,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/list-min.js",
+      "oAP" : "\/library\/js\/frontend\/min\/modal-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/blocks\/min\/gallery-min.js" : {
+    "\/library\/js\/frontend\/preloader.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 1,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/min\/gallery-min-min.js",
+      "oAP" : "\/library\/js\/frontend\/min\/preloader-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/blocks\/min\/gallery-min.js.map" : {
+    "\/library\/js\/gutenberg\/gallery.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 1,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/library\/js\/gutenberg\/min\/gallery-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 1
+    },
+    "\/library\/js\/gutenberg\/image-section.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 1,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/library\/js\/gutenberg\/min\/image-section-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 1
+    },
+    "\/library\/js\/gutenberg\/list.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 1,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/library\/js\/gutenberg\/min\/list-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 1
+    },
+    "\/library\/js\/gutenberg\/min\/gallery-min.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 1,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/library\/js\/gutenberg\/min\/min\/gallery-min-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 1
+    },
+    "\/library\/js\/gutenberg\/min\/gallery-min.js.map" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/gallery-min.js.map",
+      "oAP" : "\/library\/js\/gutenberg\/min\/gallery-min.js.map",
       "oF" : 0
     },
-    "\/library\/js\/blocks\/min\/image-section-min.js" : {
+    "\/library\/js\/gutenberg\/min\/image-section-min.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 1,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/min\/image-section-min-min.js",
+      "oAP" : "\/library\/js\/gutenberg\/min\/min\/image-section-min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/blocks\/min\/image-section-min.js.map" : {
+    "\/library\/js\/gutenberg\/min\/image-section-min.js.map" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/image-section-min.js.map",
+      "oAP" : "\/library\/js\/gutenberg\/min\/image-section-min.js.map",
       "oF" : 0
     },
-    "\/library\/js\/blocks\/min\/list-min.js" : {
+    "\/library\/js\/gutenberg\/min\/list-min.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 1,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/min\/list-min-min.js",
+      "oAP" : "\/library\/js\/gutenberg\/min\/min\/list-min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/blocks\/min\/list-min.js.map" : {
+    "\/library\/js\/gutenberg\/min\/list-min.js.map" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/list-min.js.map",
+      "oAP" : "\/library\/js\/gutenberg\/min\/list-min.js.map",
       "oF" : 0
     },
-    "\/library\/js\/blocks\/min\/swiper-slideshow-min.js" : {
+    "\/library\/js\/gutenberg\/min\/swiper-slideshow-min.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 1,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/min\/swiper-slideshow-min-min.js",
+      "oAP" : "\/library\/js\/gutenberg\/min\/min\/swiper-slideshow-min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/blocks\/min\/swiper-slideshow-min.js.map" : {
+    "\/library\/js\/gutenberg\/min\/swiper-slideshow-min.js.map" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/swiper-slideshow-min.js.map",
+      "oAP" : "\/library\/js\/gutenberg\/min\/swiper-slideshow-min.js.map",
       "oF" : 0
     },
-    "\/library\/js\/blocks\/min\/user-flickity-min.js" : {
+    "\/library\/js\/gutenberg\/min\/user-flickity-min.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 1,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/min\/user-flickity-min-min.js",
+      "oAP" : "\/library\/js\/gutenberg\/min\/min\/user-flickity-min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/blocks\/min\/user-flickity-min.js.map" : {
+    "\/library\/js\/gutenberg\/min\/user-flickity-min.js.map" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/user-flickity-min.js.map",
+      "oAP" : "\/library\/js\/gutenberg\/min\/user-flickity-min.js.map",
       "oF" : 0
     },
-    "\/library\/js\/blocks\/min\/user-slick-min.js" : {
+    "\/library\/js\/gutenberg\/min\/user-slick-min.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 1,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/min\/user-slick-min-min.js",
+      "oAP" : "\/library\/js\/gutenberg\/min\/min\/user-slick-min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/blocks\/min\/user-slick-min.js.map" : {
+    "\/library\/js\/gutenberg\/min\/user-slick-min.js.map" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/user-slick-min.js.map",
+      "oAP" : "\/library\/js\/gutenberg\/min\/user-slick-min.js.map",
       "oF" : 0
     },
-    "\/library\/js\/blocks\/user-slick.js" : {
+    "\/library\/js\/gutenberg\/user-slick.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 1,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/blocks\/min\/user-slick-min.js",
+      "oAP" : "\/library\/js\/gutenberg\/min\/user-slick-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/gsap-user.js" : {
-      "bF" : 0,
+    "\/library\/js\/page-transitions\/fade.js" : {
+      "bF" : 4,
       "ft" : 64,
-      "ma" : 1,
+      "ma" : 0,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/min\/gsap-user-min.js",
+      "oAP" : "\/library\/js\/page-transitions\/min\/fade-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/header.js" : {
+    "\/library\/js\/page-transitions\/min\/fade-min.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 1,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/min\/header-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 1
-    },
-    "\/library\/js\/libs\/modernizr-custom-min.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 1,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/library\/js\/libs\/min\/modernizr-custom-min-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 1
-    },
-    "\/library\/js\/libs\/modernizr-custom.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 1,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/library\/js\/libs\/min\/modernizr-custom-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 1
-    },
-    "\/library\/js\/min\/flickity.min-min.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 1,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/library\/js\/min\/min\/flickity.min-min-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 1
-    },
-    "\/library\/js\/min\/flickity.min-min.js.map" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/library\/js\/min\/flickity.min-min.js.map",
-      "oF" : 0
-    },
-    "\/library\/js\/min\/gallery-min.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 1,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/library\/js\/min\/min\/gallery-min-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 1
-    },
-    "\/library\/js\/min\/gallery-min.js.map" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/library\/js\/min\/gallery-min.js.map",
-      "oF" : 0
-    },
-    "\/library\/js\/min\/swiper.min-min.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 1,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/library\/js\/min\/min\/swiper.min-min-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 1
-    },
-    "\/library\/js\/min\/swiper.min-min.js.map" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/library\/js\/min\/swiper.min-min.js.map",
-      "oF" : 0
-    },
-    "\/library\/js\/modal.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 1,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/library\/js\/min\/modal-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 1
-    },
-    "\/library\/js\/preloader.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 1,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/library\/js\/min\/preloader-min.js",
+      "oAP" : "\/library\/js\/page-transitions\/min\/min\/fade-min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1
@@ -1091,24 +1034,13 @@
       "sC" : 3,
       "tS" : 1
     },
-    "\/library\/js\/slick.min.js" : {
+    "\/library\/js\/slider\/slick.min.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 1,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/library\/js\/min\/slick.min-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 1
-    },
-    "\/library\/js\/texttrail.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 1,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/library\/js\/min\/texttrail-min.js",
+      "oAP" : "\/library\/js\/slider\/min\/slick.min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 1

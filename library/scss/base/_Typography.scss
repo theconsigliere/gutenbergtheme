@@ -221,16 +221,6 @@ li {
 }
 
 
-p.source-org.copyright {
-  font-size: 1rem;
-
-  .dashicons {
-    width: 1.2em;
-    height: 1.2em;
-    font-size: 1.5em;
-  }
-
-  a{
-    font-size: 1rem;
-  }
-}
+// p {
+//   width: clamp (45ch, 50%, 75ch );
+// }

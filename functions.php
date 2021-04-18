@@ -452,9 +452,6 @@ SCRIPTS & ENQUEUEING
                 // SCRIPTS
                 /*********************/
 
-                // modernizr (3.6.0 2018-04-17)
-                wp_enqueue_script('modernizr', get_theme_file_uri() . '/library/js/libs/modernizr-custom-min.js', array(), '3.6.0', false);
-
 
                 // comment reply script for threaded comments
                 if (is_singular() and comments_open() and (get_option('thread_comments') == 1)) {
@@ -471,29 +468,27 @@ SCRIPTS & ENQUEUEING
                 // Barba Scripts
                 // wp_enqueue_script('barba', get_template_directory_uri() . '/library/js/barba/barba.js', array(), '', true);
 
-                
                 // MODAL -> THEME SETTINGS
-                wp_enqueue_script('modal', get_template_directory_uri() . '/library/js/modal.js', array(), false, '1.0.0' );
-
-               
+                wp_enqueue_script('modal', get_template_directory_uri() . '/library/js/frontend/modal.js', array(), false, '1.0.0' );
 
                 // Header
-                wp_enqueue_script('header', get_template_directory_uri() . '/library/js/header.js', array(), '', true );
+                wp_enqueue_script('header', get_template_directory_uri() . '/library/js/frontend/header.js', array(), '', true );
+
+                // PAGE TRANSITIONS
+                wp_enqueue_script('header-fader', get_template_directory_uri() . '/library/js/page-transitions/min/fade-min.js', array(), '', true );
 
 
                 // Pre Loader
-                wp_enqueue_script('preloader', get_template_directory_uri() . '/library/js/preloader.js', array(), '', true );
-
-                // Text trail
-                wp_enqueue_script('texttrail', get_template_directory_uri() . '/library/js/texttrail.js', array(), '', true );
+                wp_enqueue_script('preloader', get_template_directory_uri() . '/library/js/frontend/preloader.js', array(), '', true );
 
 
                 // GSAP Scripts
                  wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js', array(), false, true);
+                
                  // Scroll Trigger
                  wp_enqueue_script('gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollTrigger.min.js', array(), false, true);
                  
-                // wp_enqueue_script('gsap-user', get_template_directory_uri() . '/library/js/gsap-user.js', array(), false, true);
+                 wp_enqueue_script('gsap-user', get_template_directory_uri() . '/library/js/frontend/gsap/gsap-user.js', array(), false, true);
 
 
                 $wp_styles->add_data('plate-ie-only', 'conditional', 'lt IE 9'); // add conditional wrapper around ie stylesheet
@@ -1126,15 +1121,23 @@ RELATED POSTS FUNCTION
 
                 // Including All in One Wp Migration with the theme
                 array(
-                    'name'               => 'All-in-One WP Migration', // The plugin name.
-                    'slug'               => 'all-in-one-wp-migration', // The plugin slug (typically the folder name).
-                    'source'             => get_template_directory() . '/library/_plugins/all-in-one-wp-migration.zip', // The plugin source.
+                    'name'               => 'All-in-One WP Migration Unlimited Extension', // The plugin name.
+                    'slug'               => 'all-in-one-wp-migration-unlimited-extension', // The plugin slug (typically the folder name).
+                    'source'             => get_template_directory() . '/library/_plugins/all-in-one-wp-migration-unlimited-extension.zip', // The plugin source.
                     'required'           => false, // If false, the plugin is only 'recommended' instead of required.
                     'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-                    'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+                    'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
                     'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
                     'external_url'       => '', // If set, overrides default API URL and points to an external URL.
                     'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+                ),
+
+                                // how to include a plugin from the WordPress Plugin Repository.
+                // Lazy load Images
+                array(
+                    'name'      => 'All in One WP Migration',
+                    'slug'      => 'all-in-one-wp-migration',
+                    'required'  => true,
                 ),
 
 
@@ -1171,6 +1174,13 @@ RELATED POSTS FUNCTION
                 array(
                     'name'      => 'SVG Support',
                     'slug'      => 'svg-support',
+                    'required'  => true,
+                ),
+
+                // GDPR Cookie Consent & Compliance
+                array(
+                    'name'      => 'GDPR Cookie Consent & Compliance',
+                    'slug'      => 'cookie-law-info',
                     'required'  => true,
                 ),
 
@@ -1284,7 +1294,7 @@ remove_theme_support( 'core-block-patterns' );
 
        function myguten_enqueue() {
         // Slick Scripts
-        wp_enqueue_script('slick', get_template_directory_uri() . '/library/js/slick.min.js', array('jquery'), '', true);
+        wp_enqueue_script('slick', get_template_directory_uri() . '/library/js/slider/slick.min.js', array('jquery'), '', true);
 
     }
 
@@ -1485,7 +1495,7 @@ remove_theme_support( 'core-block-patterns' );
                         ],
                     'keywords'          => array( 'slideshow', 'slides', 'carousel' ),
                     'enqueue_assets' => function(){ 
-                        wp_enqueue_script('user-slick', get_template_directory_uri() . '/library/js/blocks/user-slick.js', array('jquery'), '', true);
+                        wp_enqueue_script('user-slick', get_template_directory_uri() . '/library/js/gutenberg/user-slick.js', array('jquery'), '', true);
                       }
                 ));
 
@@ -1525,7 +1535,7 @@ remove_theme_support( 'core-block-patterns' );
                     'icon'              => 'list-view',
                     'keywords'          => array( 'List', 'text' ),
                     'enqueue_assets' => function(){ 
-                        wp_enqueue_script('user-list', get_template_directory_uri() . '/library/js/blocks/list.js', array('jquery'), '', true);
+                        wp_enqueue_script('user-list', get_template_directory_uri() . '/library/js/gutenberg/list.js', array('jquery'), '', true);
                       },
                       'example'           => array(
                         'attributes' => array(
@@ -1586,7 +1596,7 @@ remove_theme_support( 'core-block-patterns' );
                         )
                         ),
                     // make sure image is always on top if paired with text next to it on mobile
-                    'enqueue_script' => get_template_directory_uri() . '/library/js/blocks/min/image-section-min.js',
+                    'enqueue_script' => get_template_directory_uri() . '/library/js/gutenberg/min/image-section-min.js',
                     
                     'align' => 'full',
                     'supports'          => [
@@ -1614,7 +1624,7 @@ remove_theme_support( 'core-block-patterns' );
                         )
                     ),
                     'enqueue_assets' => function(){ 
-                        wp_enqueue_script('gallery', get_template_directory_uri() . '/library/js/blocks/min/gallery-min.js', array(), '', true);
+                        wp_enqueue_script('gallery', get_template_directory_uri() . '/library/js/gutenberg/min/gallery-min.js', array(), '', true);
                         },
                     'align' => 'full',
                     'supports'          => [
@@ -1853,7 +1863,7 @@ remove_theme_support( 'core-block-patterns' );
                     'category'          => 'post-blocks',
                     'icon'              => 'admin-post',
                     'keywords'          => array( 'display', 'post', 'blogs', 'article' ),
-                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/testimonial/testimonial.js',
+                    // 'enqueue_script' => get_template_directory_uri() . '/template-parts/gutenberg/testimonial/testimonial.js',
                     'align' => 'full',
                     'supports'          => [
                         // customize alignment toolbar

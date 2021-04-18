@@ -36,12 +36,6 @@
             <link rel="shortcut icon" href="<?php echo get_theme_file_uri(); ?>/favicon.ico">
         <![endif]-->
 
-    <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="<?php echo get_theme_file_uri(); ?>/library/images/apple-touch-icon.png">
-
-    <!-- Safari Pinned Tab Icon -->
-    <link rel="mask-icon" href="<?php echo get_theme_file_uri(); ?>/library/images/icon.svg" color="#0088cc">
-
     <?php // updated pingback. Thanks @HardeepAsrani https://github.com/HardeepAsrani 
     ?>
     <?php if (is_singular() && pings_open(get_queried_object())) : ?>
@@ -55,6 +49,11 @@
 </head>
 
 <body <?php body_class(); ?> itemscope itemtype="https://schema.org/WebPage">
+
+<?php // Page Transitions  ?>
+<svg id="header-fader"></svg>
+<script src='<?php echo get_theme_file_uri(); ?>/library/js/page-transitions/min/fade-min.js' ></script>
+
 
     <?php // PRE-LOADER 
 
