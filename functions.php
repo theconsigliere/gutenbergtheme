@@ -68,7 +68,7 @@ function plate_lunch()
     add_action('wp_enqueue_scripts', 'plate_scripts_and_styles', 999);
 
     // Enqueue scripts that use ACF Elements
-    add_action('acf/input/admin_enqueue_scripts', 'my_acf_admin_enqueue_scripts', 10, 0);
+  //  add_action('acf/input/admin_enqueue_scripts', 'my_acf_admin_enqueue_scripts', 10, 0);
 
     // support the theme stuffs
     plate_theme_support();
@@ -437,6 +437,10 @@ SCRIPTS & ENQUEUEING
 
             global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 
+
+
+
+                
             if (!is_admin()) {
 
 
@@ -445,7 +449,7 @@ SCRIPTS & ENQUEUEING
 
 
                 // register main stylesheet
-                wp_enqueue_style('plate-stylesheet', get_theme_file_uri() . '/library/css/style.css', array(), '', 'all');
+                wp_enqueue_style('styles', get_theme_file_uri() . '/build/styles/style.css', array(), '', 'all');
 
 
 
@@ -457,38 +461,12 @@ SCRIPTS & ENQUEUEING
                 if (is_singular() and comments_open() and (get_option('thread_comments') == 1)) {
                     wp_enqueue_script('comment-reply');
                 }
+
+
+                // JavaScript
+                /*********************/
+                wp_enqueue_script('javascript', get_template_directory_uri() . '/build/js/index-min.js', array(), false, true);
                 
-                // adding scripts file in the footer
-                wp_enqueue_script('plate-js', get_theme_file_uri() . '/library/js/scripts.js', array('jquery'), '', true);
-
-                // accessibility (a11y) scripts
-                wp_enqueue_script('plate-a11y', get_theme_file_uri() . '/library/js/a11y.js', array('jquery'), '', true);
-
-
-                // Barba Scripts
-                // wp_enqueue_script('barba', get_template_directory_uri() . '/library/js/barba/barba.js', array(), '', true);
-
-                // MODAL -> THEME SETTINGS
-                wp_enqueue_script('modal', get_template_directory_uri() . '/library/js/frontend/modal.js', array(), false, '1.0.0' );
-
-                // Header
-                wp_enqueue_script('header', get_template_directory_uri() . '/library/js/frontend/header.js', array(), '', true );
-
-                // PAGE TRANSITIONS
-                wp_enqueue_script('header-fader', get_template_directory_uri() . '/library/js/page-transitions/min/fade-min.js', array(), '', true );
-
-
-                // Pre Loader
-                wp_enqueue_script('preloader', get_template_directory_uri() . '/library/js/frontend/preloader.js', array(), '', true );
-
-
-                // GSAP Scripts
-                 wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js', array(), false, true);
-                
-                 // Scroll Trigger
-                 wp_enqueue_script('gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollTrigger.min.js', array(), false, true);
-                 
-                 wp_enqueue_script('gsap-user', get_template_directory_uri() . '/library/js/frontend/gsap/gsap-user.js', array(), false, true);
 
 
                 $wp_styles->add_data('plate-ie-only', 'conditional', 'lt IE 9'); // add conditional wrapper around ie stylesheet
@@ -497,18 +475,13 @@ SCRIPTS & ENQUEUEING
             }
         }
 
+       function my_admin_enqueue_scripts() {
+           wp_enqueue_script('acf-javascript', get_template_directory_uri() . '/build/js/index-min.js', array(), false, true);
+       }
+        
+       add_action('acf/input/admin_enqueue_scripts', 'my_admin_enqueue_scripts');
 
-/*********************
-ACF SCRIPTS
-*********************/
-
-        function my_acf_admin_enqueue_scripts() {
-
-           
-
-        }
-
-
+        
 
         // Remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
         // This only works for the main content box, not using ACF or other page builders.
@@ -566,7 +539,7 @@ THEME SUPPORT
                 'custom-header',
                 array(
 
-                    'default-image'      => get_template_directory_uri() . '/library/images/header-image.png',
+                    'default-image'      => get_template_directory_uri() . '/build/images/header-image.png',
                     'default-text-color' => '000',
                     'width'              => 1440,
                     'height'             => 220,
@@ -1042,7 +1015,7 @@ RELATED POSTS FUNCTION
 
             // helper vars for links and images and stuffs.
             $url = get_admin_url();
-            $img = get_theme_file_uri() . '/library/images/Dirty-Martini-Logo.png';
+            $img = get_theme_file_uri() . '/build/images/Dirty-Martini-Logo.png';
 
             echo '<div class="dashboard-image"><img src=' . $img . '" width="96" height="96" /></div>';
             echo '<h3>You\'ve arrived at your WordPress Dashboard aka the \'Site Admin\' or \'WordPress Admin\'.</h3>';
@@ -1288,26 +1261,28 @@ remove_theme_support( 'core-block-patterns' );
      //ADDING CUSTOM STYLESHEET FOR ALL BLOCKS
 
 
-     add_action( 'after_setup_theme', 'gutenberg_css' );
+     add_action( 'enqueue_block_editor_assets', 'dm_gutenberg_css' );
  
-        function gutenberg_css(){
-         
-         add_theme_support( 'editor-styles' ); // if you don't add this line, your stylesheet won't be added
-         add_editor_style( 'library/css/editor-styles.css' ); // tries to include style-editor.css directly from your theme folder
+        function dm_gutenberg_css(){
+
+            wp_enqueue_style( 'gutenbergthemeblocks-style', get_template_directory_uri() . '/build/styles/editor-styles.css');
+
+     //    add_theme_support( 'editor-styles' ); // if you don't add this line, your stylesheet won't be added
+     //    add_editor_style( 'build/styles/editor-styles.css' ); // tries to include style-editor.css directly from your theme folder
        }
 
        // JS FILES TO INCLUDE ON ALL BLOCKS IN DASHBOARD EDITOR
 
-       function myguten_enqueue() {
+      // function myguten_enqueue() {
         // Slick Scripts
-        wp_enqueue_script('slick', get_template_directory_uri() . '/library/js/slider/slick.min.js', array('jquery'), '', true);
+   //   wp_enqueue_script('slick', get_template_directory_uri() . '/library/js/slider/slick.min.js', array('jquery'), '', true);
 
-    }
+    //}
 
-    add_action( 'enqueue_block_editor_assets', 'myguten_enqueue' );
+    // add_action( 'enqueue_block_editor_assets', 'myguten_enqueue' );
 
     // Enqueue javascript on the frontend as well
-    add_action('wp_enqueue_scripts', 'myguten_enqueue');
+   //  add_action('wp_enqueue_scripts', 'myguten_enqueue');
 
         // ALLOW WIDE IN GUTENBERG
 
@@ -1500,9 +1475,9 @@ remove_theme_support( 'core-block-patterns' );
                         ]
                         ],
                     'keywords'          => array( 'slideshow', 'slides', 'carousel' ),
-                    'enqueue_assets' => function(){ 
-                        wp_enqueue_script('user-slick', get_template_directory_uri() . '/library/js/gutenberg/user-slick.js', array('jquery'), '', true);
-                      }
+                    // 'enqueue_assets' => function(){ 
+                    //     wp_enqueue_script('user-slick', get_template_directory_uri() . '/library/js/gutenberg/user-slick.js', array('jquery'), '', true);
+                    //   }
                 ));
 
                 // Register a Content Section block.
@@ -1540,9 +1515,9 @@ remove_theme_support( 'core-block-patterns' );
                     'category'          => 'page-blocks',
                     'icon'              => 'list-view',
                     'keywords'          => array( 'List', 'text' ),
-                    'enqueue_assets' => function(){ 
-                        wp_enqueue_script('user-list', get_template_directory_uri() . '/library/js/gutenberg/list.js', array('jquery'), '', true);
-                      },
+                    // 'enqueue_assets' => function(){ 
+                    //     wp_enqueue_script('user-list', get_template_directory_uri() . '/library/js/gutenberg/list.js', array('jquery'), '', true);
+                    //   },
                       'example'           => array(
                         'attributes' => array(
                             'mode' => false,
@@ -1601,8 +1576,8 @@ remove_theme_support( 'core-block-patterns' );
                             )
                         )
                         ),
-                    // make sure image is always on top if paired with text next to it on mobile
-                    'enqueue_script' => get_template_directory_uri() . '/library/js/gutenberg/min/image-section-min.js',
+                    // // make sure image is always on top if paired with text next to it on mobile
+                    // 'enqueue_script' => get_template_directory_uri() . '/library/js/gutenberg/min/image-section-min.js',
                     
                     'align' => 'full',
                     'supports'          => [
@@ -1629,9 +1604,9 @@ remove_theme_support( 'core-block-patterns' );
                             )
                         )
                     ),
-                    'enqueue_assets' => function(){ 
-                        wp_enqueue_script('gallery', get_template_directory_uri() . '/library/js/gutenberg/min/gallery-min.js', array(), '', true);
-                        },
+                    // 'enqueue_assets' => function(){ 
+                    //     wp_enqueue_script('gallery', get_template_directory_uri() . '/library/js/gutenberg/min/gallery-min.js', array(), '', true);
+                    //     },
                     'align' => 'full',
                     'supports'          => [
                         // customize alignment toolbar
@@ -1907,4 +1882,21 @@ remove_theme_support( 'core-block-patterns' );
             remove_filter('acf_the_content', 'wpautop' );
         }
         add_action('acf/init', 'acf_wysiwyg_remove_wpautop', 15);
+
+
+        // add this to functions.php
+        //register acf fields to Wordpress API
+        //https://support.advancedcustomfields.com/forums/topic/json-rest-api-and-acf/
+
+        function acf_to_rest_api($response, $post, $request) {
+            if (!function_exists('get_fields')) return $response;
+
+            if (isset($post)) {
+                $acf = get_fields($post->id);
+                $response->data['acf'] = $acf;
+            }
+            return $response;
+        }
+        add_filter('rest_prepare_post', 'acf_to_rest_api', 10, 3);
+
         ?>

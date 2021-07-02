@@ -1,5 +1,3 @@
-
-
 <?php
 
 /**
@@ -12,7 +10,7 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'testimonial-' . $block['id'];
+$id = 'title-section-' . $block['id'];
 if( !empty($block['anchor']) ) {
     $id = $block['anchor'];
 }
@@ -35,20 +33,20 @@ $position = get_field('position');
 
 ?>
 
-<section class="full-width-section">  
-        <div class="<?php echo $position; ?>">
-            <div class="title_title__section">
-                <h1><?php echo $title; ?></h1>
+<section class="full-width-section <?php echo esc_attr($className); ?>" id="<?php echo esc_attr($id); ?>">
+    <div class="<?php echo $position; ?>">
+        <div class="title_title__section">
+            <h1><?php echo $title; ?></h1>
 
-                <?php if ($subtitle) { ?>
-                    <div class="sub_title__container">
-                        <h4><?php echo $subtitle; ?></h4>
-                    </div>
-                <?php } ?>
+            <?php if ($subtitle) { ?>
+            <div class="sub_title__container">
+                <h4><?php echo $subtitle; ?></h4>
             </div>
-            <?php if ($desc) { ?>
-                <p class='description'><?php echo $desc; ?></p>
-         <?php } ?>
+            <?php } ?>
         </div>
+        <?php if ($desc) { ?>
+        <p class='description'><?php echo $desc; ?></p>
+        <?php } ?>
+    </div>
 
 </section>

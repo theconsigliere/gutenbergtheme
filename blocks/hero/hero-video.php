@@ -20,13 +20,13 @@ $className = 'video-hero-header';
 if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
-if( !empty($block['align']) ) {
-    $className .= ' align' . $block['align'];
-}
+// if( !empty($block['align']) ) {
+//     $className .= ' align' . $block['align'];
+// }
 
 // Block preview
 if( !empty( $block['data']['is_preview'] ) ) { ?>
-    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Hero Video.jpg" alt="">
+<img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Hero Video.jpg" alt="">
 <?php } 
 
 // Load values and assign defaults.
@@ -39,7 +39,8 @@ $videoImage = get_field('video_image');
 ?>
 
 
-<div class="<?php echo esc_attr($className); ?>"  id="<?php echo esc_attr($id); ?>">
+<div class="<?php echo esc_attr($className); ?>" id="<?php echo esc_attr($id); ?>"
+    data-hero='<?php echo esc_attr($className); ?>'>
 
     <div class="video-hero-image embed-container">
 
@@ -71,13 +72,13 @@ $videoImage = get_field('video_image');
         // Display customized HTML.
         echo $iframe;
         ?>
-                <div class="video-overlay" style="background-color:<?php echo $color; ?>"></div>
-     </div>
+        <div class="video-overlay" style="background-color:<?php echo $color; ?>"></div>
+    </div>
 
-            <div class="video-hero-text">
-                <?php echo wp_get_attachment_image( $videoImage , 'full', '', array('class'=>'video__logo')); ?>
-                <h1 class='white zero'><?php echo $title; ?></h1>
-            </div>
+    <div class="video-hero-text">
+        <?php echo wp_get_attachment_image( $videoImage , 'full', '', array('class'=>'video__logo')); ?>
+        <h1 class='white zero'><?php echo $title; ?></h1>
+    </div>
 
 
 </div>

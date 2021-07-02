@@ -1,0 +1,49 @@
+{
+    "key": "group_60dc5b9b340b2",
+    "title": "Hide & Reveal Header",
+    "fields": [
+        {
+            "key": "field_60dc5bb2cc901",
+            "label": "Hide Reveal Header",
+            "name": "hide_reveal_header",
+            "type": "select",
+            "instructions": "When you scroll down hide header, reveal when scrolling up.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "activate": "Activate",
+                "deactivate": "Deactivate"
+            },
+            "default_value": "deactivate",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-header"
+            }
+        ]
+    ],
+    "menu_order": 9,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1625054349
+}

@@ -20,13 +20,13 @@ $className = 'hero-textside-imageside';
 if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
-if( !empty($block['align']) ) {
-    $className .= ' align' . $block['align'];
-}
+// if( !empty($block['align']) ) {
+//     $className .= ' align' . $block['align'];
+// }
 
 // Block preview
 if( !empty( $block['data']['is_preview'] ) ) { ?>
-    <img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Hero text-image.jpg" alt="">
+<img src="<?php echo get_theme_file_uri(); ?>/blocks/preview/Hero text-image.jpg" alt="">
 <?php } 
 
 // Load values and assign defaults.
@@ -44,7 +44,8 @@ $heroimage = get_sub_field('hero_imageside');
 ?>
 
 
-<div class="<?php echo esc_attr($className); ?>"  id="<?php echo esc_attr($id); ?>">
+<div class="<?php echo esc_attr($className); ?>" id="<?php echo esc_attr($id); ?>"
+    data-hero='<?php echo esc_attr($className); ?>'>
 
 
     <?php
@@ -52,67 +53,69 @@ $heroimage = get_sub_field('hero_imageside');
     // COLUMN REPEATER
     if( have_rows( $column ) ): ?>
 
-    
-        <?php while ( have_rows( $column ) ) : the_row(); ?>
 
-           
-        <?php // FLEXIBLE CONTENT IN COLUMNS ?>
+    <?php while ( have_rows( $column ) ) : the_row(); ?>
 
-            <?php if (have_rows($flexibleContent)) : while (have_rows($flexibleContent)) : the_row();
+
+    <?php // FLEXIBLE CONTENT IN COLUMNS ?>
+
+    <?php if (have_rows($flexibleContent)) : while (have_rows($flexibleContent)) : the_row();
 
                         // Title Section
                         if (get_row_layout() == $titleSection ) : ?>
 
-                            <div class="hero__column">
+    <div class="hero__column">
 
-                                <div class="hero__text">
-                                    <div class="hero__text_inner">
+        <div class="hero__text">
+            <div class="hero__text_inner">
 
-                                    <?php if ( $subtitle ) { ?>
-                                        <h6 class='js_textside__sub_title uppercase font-bold-title sub_title'><span class='hero-line'></span><?php echo $subtitle; ?></h6>
-                                        <?php } ?>
-        
-                                        <h1 class='js_textside__title'><?php echo $title; ?></h1>
-                                        <!-- <div class="underline"></div> -->
-                                    
-                                        <?php if ( $desc ) { ?>
-                                        <p class='full-width__desc js_textside__desc'><?php echo $desc; ?></p>
-                                        <?php } ?>
-                                       
-                            
-                                        <?php 
+                <?php if ( $subtitle ) { ?>
+                <h6 class='js_textside__sub_title uppercase font-bold-title sub_title'><span
+                        class='hero-line'></span><?php echo $subtitle; ?></h6>
+                <?php } ?>
+
+                <h1 class='js_textside__title'><?php echo $title; ?></h1>
+                <!-- <div class="underline"></div> -->
+
+                <?php if ( $desc ) { ?>
+                <p class='full-width__desc js_textside__desc'><?php echo $desc; ?></p>
+                <?php } ?>
+
+
+                <?php 
                                        
                                         if( $link ): 
                                             $link_url = $link['url'];
                                             $link_title = $link['title'];
                                             $link_target = $link['target'] ? $link['target'] : '_self';
                                             ?>
-                                            <a class="main-button js_textside__button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
+                <a class="main-button js_textside__button" href="<?php echo esc_url( $link_url ); ?>"
+                    target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                <?php endif; ?>
+            </div>
+        </div>
 
-                            </div>
-                            
-                        <?php
+    </div>
+
+    <?php
 
                         //  Image Section
                         elseif (get_row_layout() == $imageSection ) : ?>
 
-                        <div class="hero__column js_hero__imageside">
-                       
-                            <?php 
+    <div class="hero__column js_hero__imageside">
+
+        <?php 
                             
                             $heroimage = get_sub_field('hero_imageside');
 
                             if (!empty($heroimage)) : ?>
-                            
-                                <?php echo wp_get_attachment_image( $heroimage, 'full', '', array('class'=>'js_hero__imageside_image')); ?>
-                            <?php endif; ?>
 
-                        </div>
+        <?php echo wp_get_attachment_image( $heroimage, 'full', '', array('class'=>'js_hero__imageside_image')); ?>
+        <?php endif; ?>
 
-                        <?php endif;
+    </div>
+
+    <?php endif;
         
                     endwhile; endif; 
 

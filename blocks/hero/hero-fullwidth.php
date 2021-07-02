@@ -20,9 +20,9 @@ $className = 'hero-fullwidth';
 if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
-if( !empty($block['align']) ) {
-    $className .= ' align' . $block['align'];
-}
+// if( !empty($block['align']) ) {
+//     $className .= ' align' . $block['align'];
+// }
 
 
 
@@ -37,7 +37,8 @@ $button = get_field('hero_button') ?: array('url' => '#', 'title' => 'Social', '
 ?>
 
 
-<div class="full-width-hero <?php echo esc_attr($className); ?>"  id="<?php echo esc_attr($id); ?>">
+<div class="full-width-hero <?php echo esc_attr($className); ?>" id="<?php echo esc_attr($id); ?>"
+    data-hero='<?php echo esc_attr($className); ?>'>
     <?php 
 
     if (!empty($heroimage)) : ?>
@@ -54,7 +55,7 @@ $button = get_field('hero_button') ?: array('url' => '#', 'title' => 'Social', '
         <?php if ( $subtitle ) { ?>
         <h4><?php echo $subtitle; ?></h4>
         <?php } ?>
-       
+
         <?php if ( $desc ) { ?>
         <p class='full-width__desc'><?php echo $desc; ?></p>
         <?php } ?>
@@ -66,7 +67,8 @@ $button = get_field('hero_button') ?: array('url' => '#', 'title' => 'Social', '
             $button_title = $button['title'];
             $button_target = $button['target'] ? $button['target'] : '_self';
             ?>
-            <a class="main-button" href="<?php echo esc_url( $button_url ); ?>" target="<?php echo esc_attr( $button_target ); ?>"><?php echo esc_html( $button_title ); ?></a>
+        <a class="main-button" href="<?php echo esc_url( $button_url ); ?>"
+            target="<?php echo esc_attr( $button_target ); ?>"><?php echo esc_html( $button_title ); ?></a>
         <?php endif; ?>
     </div>
 
