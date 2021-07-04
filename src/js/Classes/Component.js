@@ -2,12 +2,18 @@ import each from 'lodash/each'
 
 export default class Component {
     constructor({ element, elements, container}) {
+      
         this.selector = element,
         this.items = {
             ...elements
         }
 
         this.scrollContainer = container
+
+
+        // to intialize straight away
+        this.create()
+        this.addEventListeners()
 
     }
 

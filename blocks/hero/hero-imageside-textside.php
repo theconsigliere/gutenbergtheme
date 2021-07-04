@@ -10,7 +10,7 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'hero-' . $block['id'];
+$id = 'hero-textside-imageside-' . $block['id'];
 if( !empty($block['anchor']) ) {
     $id = $block['anchor'];
 }

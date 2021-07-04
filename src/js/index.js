@@ -19,8 +19,13 @@ import Gallery from 'blocks/page/Gallery'
 import Parallax from 'blocks/page/Parallax'
 
 // Hero
-import Boxed from 'blocks/hero/Boxed'
-import Service from 'blocks/hero/Service'
+import heroSlideshow from 'blocks/hero/hero-slideshow'
+//import Service from 'blocks/hero/Service'
+
+
+
+// Utils
+// import { asyncQuerySelector } from 'utils/asyncQuerySelector'
 
 
 //pages
@@ -34,18 +39,25 @@ class App {
        
        if (typeof wp != 'undefined') {
         // variable is undefined or null
-            console.log('backend baby')
-        } else {
-
-            this.createContent()
-            this.createPreloader()
-            this.createHero()
-            this.createBlocks()
+          
+        // Checking if we are viewing on backend or not
+            if ( wp.blockEditor ) {
             this.addEventListeners()
+            } else {
+                this.init()
+            }
 
+        } else {
+            this.init()
         }
-   
-  
+    }
+
+    init() {
+        this.createPreloader()
+        this.createContent()
+        this.createHero()
+        this.createBlocks()
+        this.addEventListeners()
     }
 
     createContent() {
@@ -72,28 +84,47 @@ class App {
         this.preloader.destroy()
     }
 
+    runGutenberg() {
+
+        console.log('for gigs')
+
+        // check for heros  & run them
+
+
+        // check for blocks & run them
+
+    }
+
     createHero() {
         // only one hero per page so don't have to check for activating multiple heros
 
         this.heros = {
-            boxed: new Boxed(),
-            service: new Service()
+            slideshow: new heroSlideshow(),
         }
 
 
         this.currentHero = document.querySelector('[data-hero]')
+    
+
+        //this.heros[hero].gutenberg()
 
         if (this.currentHero) {
+
             this.currentHeroValue = this.currentHero.getAttribute('data-hero')
             const selectors = Object.keys(this.heros); //get keys from object as an array
 
+   
 
             selectors.forEach((hero) => {
 
-            if (this.currentHeroValue.includes(hero) ) {
-                //  console.log(this.heros[hero])
-                this.heros[hero].create()
-            } 
+             //   console.log(this.currentHeroValue, hero)
+
+                if (this.currentHeroValue.includes(hero) ) {
+                    //  console.log(this.heros[hero])
+
+                        this.heros[hero].create()
+
+                } 
             
             // else {
                 // console.log('no matches')
@@ -169,6 +200,13 @@ class App {
     }
 
     addEventListeners() {
+
+        if (typeof wp != 'undefined') {
+            if ( wp.blockEditor ) {
+                // GUTENBERG
+                document.addEventListener('DOMContentLoaded', this.runGutenberg.bind(this))
+            }
+        }
 
 
 

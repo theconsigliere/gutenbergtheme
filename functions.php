@@ -1321,6 +1321,7 @@ remove_theme_support( 'core-block-patterns' );
                 // Hero Blocks
                 'acf/hero-collage',
                 'acf/hero-fullwidth',
+                'acf/hero-slideshow',
                 'acf/hero-textside-imageside',
                 'acf/hero-video',
             );
@@ -1696,6 +1697,25 @@ remove_theme_support( 'core-block-patterns' );
                              'multiple'      => false,
        
                            ]
+                ));
+
+                // Hero Slideshow
+                acf_register_block_type(array(
+                    'name'              => 'hero-slideshow',
+                    'title'             => __('Hero Slideshow'),
+                    'description'       => __('A Custom Hero Section.'),
+                    'render_template'   => 'blocks/hero/hero-slideshow.php',
+                    'category'          => 'hero-blocks',
+                    'icon'              => 'desktop',
+                    'keywords'          => array( 'hero', 'slideshow', 'full', 'full-width' ),
+                    'align' => 'full',
+                    'supports'          => [
+                        // customize alignment toolbar
+                    'align' => array( 'full' ),
+                        // This property allows the block to be added multiple times. Defaults to true.
+                        'multiple'      => false,
+
+                    ]
                 ));
 
                 // Hero Text Side Image Side 

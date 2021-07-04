@@ -3,7 +3,7 @@
   HERO
   section
   *********************/
-.full-width-hero {
+.full-width-hero, .hero__slideshow__slide {
   grid-column: span 12;
   position: relative;
   height: 100vh;
@@ -351,5 +351,28 @@
         }
       }
     }
+  }
+}
+
+
+// Hero Slideshow
+
+
+.hero__slideshow__container {
+  height: 100vh;
+}
+
+.hs__swiper-pagination {
+
+  .swiper-pagination-bullet {
+    background: black;
+    opacity: 0.6;
+    width: 10px;
+    height: 10px;
+    margin: 0 1em !important;
+  }
+
+  .swiper-pagination-bullet.swiper-pagination-bullet-active  {
+    opacity: 1;
   }
 }
