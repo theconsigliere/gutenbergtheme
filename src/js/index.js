@@ -6,6 +6,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 import Header from 'components/Header'
 import Preloader from 'components/Preloader'
+import Modal from 'components/Modal'
 // import Scroll from 'components/Scroll'
 
 //blocks
@@ -53,7 +54,7 @@ class App {
     }
 
     init() {
-        this.createPreloader()
+        this.createSettings()
         this.createContent()
         this.createHero()
         this.createBlocks()
@@ -69,13 +70,17 @@ class App {
         this.body = document.querySelector('body')
     }
 
-    createPreloader () {
+    createSettings () {
         this.preloaderInView = document.querySelector('.pre_loader')
+        this.modalInView = document.querySelector('#myModal')
 
         if (this.preloaderInView ) {
             this.preloader = new Preloader()
-         //   this,preloader.once('completed', this.onPreloaded.bind(this))
-        }
+         }
+
+        if (this.modalInView ) {
+            this.modal = new Modal()
+         }
     }
 
 

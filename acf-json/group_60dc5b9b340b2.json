@@ -16,8 +16,8 @@
                 "id": ""
             },
             "choices": {
-                "activate": "Activate",
-                "deactivate": "Deactivate"
+                "header__activate": "Activate",
+                "header__deactivate": "Deactivate"
             },
             "default_value": "deactivate",
             "allow_null": 0,
@@ -45,5 +45,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1625054349
+    "modified": 1625425663
 }

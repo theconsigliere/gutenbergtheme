@@ -31,7 +31,7 @@
 
 .frame__demo--current,
 .frame__demo--current:hover {
-  color: $black;
+  color: var(--color-black);
 }
 
 .content {
@@ -130,7 +130,7 @@
 
 .content__text-inner {
   display: block;
-  color: $white;
+  color: var(--color-white);
   text-transform: uppercase;
   font-weight: 700;
   font-size: 15vh;
@@ -138,8 +138,8 @@
   font-family: "Goblin One", cursive;
   // font-family: "Kanit", sans-serif;
 
-  -webkit-text-stroke: 3px $black;
-  text-stroke: 3px $black;
+  -webkit-text-stroke: 3px var(--color-black);
+  text-stroke: 3px var(--color-black);
   // mix-blend-mode: exclusion;
 }
 
@@ -176,11 +176,11 @@
 }
 
 .content__text-inner--stroke {
-  -webkit-text-stroke: 3px $black;
-  text-stroke: 3px $black;
-  -webkit-text-fill-color: $black;
-  text-fill-color: $black;
-  color: $black;
+  -webkit-text-stroke: 3px var(--color-black);
+  text-stroke: 3px var(--color-black);
+  -webkit-text-fill-color: var(--color-black);
+  text-fill-color: var(--color-black);
+  color: var(--color-black);
   text-shadow: none;
 }
 
@@ -205,11 +205,11 @@
   margin: 0.25rem 0;
   padding: 0;
   text-transform: uppercase;
-  color: $white;
+  color: var(--color-white);
   font-weight: 900;
   line-height: 1;
   padding: 10px 50px;
-  background: $black;
+  background: var(--color-black);
   border: 1px solid white;
 }
 
@@ -292,8 +292,8 @@
     font-size: 1.75rem;
   }
   .demo-5 .content__text-inner--stroke {
-    -webkit-text-stroke: 3px $black;
-    text-stroke: 3px $black;
+    -webkit-text-stroke: 3px var(--color-black);
+    text-stroke: 3px var(--color-black);
   }
 }
 

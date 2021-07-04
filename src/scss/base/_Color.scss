@@ -7,50 +7,16 @@
 
 :root {
   // colours
-  --color-grey: #e4e4e4;
+  --color-light-grey: #e4e4e4;
+  --color-dark-grey: #606c76;
+  --color-grey: #1a1a1a;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-blue: #0056ac;
+  --color-dark-blue: #00458a;
 }
 
-$color-initial: #fff !default;
-$color-primary: #000 !default;
-$color-secondary: #606c76 !default;
-$color-tertiary: #f4f5f6 !default;
-$color-quaternary: #d1d1d1 !default;
-$color-quinary: #e1e1e1 !default;
+$text-color: var(--color-dark-grey);
 
-$blue: #5b8af2;
-$light-blue: #f4fbff;
-
-$black: #000;
-$white: #fff;
-
-$light-gray: #f8f9fa;
-$grey: #1a1a1a;
-
-// $text-color:        #5c6b80;
-
-$alert-yellow: #ebe16f;
-$alert-red: #fbe3e4;
-$alert-green: #e6efc2;
-$alert-blue: #d5edf8;
-
-// $text-color:        #5c6b80;
-
-$sb-blue: #0056ac;
-$sb-light-blue: #99bbde;
-
-$sb-dark-blue: #004466;
-$sb-midnight: #001c3a;
-$sb-purple: #cc0099;
-$sb-orange: #f05a28;
-$sb-dark-orange: #b4441e;
-$sb-red: #f23e2f;
-$sb-black: #111111;
-$sb-grey: #808080;
-
-$text-color: lighten($sb-black, 18%);
-
-$link-color: $sb-blue;
-$link-hover: darken($link-color, 9%);
-
-$border-color: #ccc;
-$disabled-gray: #cfcfcf;
+$link-color: var(--color-blue);
+$link-hover: var(--color-dark-blue);

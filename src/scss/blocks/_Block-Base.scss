@@ -2,10 +2,7 @@
 
 /* Custom Editor Styles */
 
-
 .wp-block {
-
-
   h1 {
     font-size: 36px;
     line-height: 1.5em;
@@ -49,7 +46,7 @@
 
   .full-width-hero,
   .js_hero__imageside_image {
-    background: $grey;
+    background: var(--color-dark-grey);
   }
 
   .main-button,
@@ -99,34 +96,33 @@ button {
   padding: $page-margin-column 0;
 }
 
-
 .editor-visual-editor {
   p,
-a {
-  margin-top: 0;
-  color: $text-color;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-  font-weight: $type-thin;
-  font-family: $text-font;
-  font-size: 1.2rem;
+  a {
+    margin-top: 0;
+    color: $text-color;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-weight: $type-thin;
+    font-family: $text-font;
+    font-size: 1.2rem;
 
-  @media (min-width: #{$screen-sm}) {
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
+    @media (min-width: #{$screen-sm}) {
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+    }
+
+    @media (min-width: #{$screen-xl}) {
+      margin-bottom: 2rem;
+      font-size: 1.6rem;
+    }
   }
 
-  @media (min-width: #{$screen-xl}) {
-    margin-bottom: 2rem;
-    font-size: 1.6rem;
+  li {
+    margin-top: 0;
+    color: $text-color;
+    font-weight: $type-thin;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
   }
-}
-
-li {
-  margin-top: 0;
-  color: $text-color;
-  font-weight: $type-thin;
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
-}
 }

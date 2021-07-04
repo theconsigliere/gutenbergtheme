@@ -111,8 +111,15 @@
     <?php   } ?>
 
 
+    <?php // ENABLE REVEAL HIDE HEADER
 
-    <header class="header" id="header" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+    // Grab the select field data
+    $header = get_field('hide_reveal_header', 'option');		
+    
+    ?>
+
+
+    <header class="header <?php echo $header ?>" id="header" role="banner" itemscope itemtype="https://schema.org/WPHeader">
 
         <?php // HEADER TOP BAR ?>
 

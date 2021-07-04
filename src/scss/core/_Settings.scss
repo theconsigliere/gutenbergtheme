@@ -50,9 +50,17 @@
   /* Fallback color */
   background-color: rgba(2, 2, 2, 0.6);
   /* Black w/ opacity */
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.hide-modal.modal {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /* Modal Content */
@@ -101,7 +109,7 @@
   }
 
   .st0 {
-    fill: $color-primary;
+    fill: var(--color-black);
   }
 }
 
@@ -116,7 +124,7 @@
   z-index: 9999;
 
   .close {
-    color: $color-primary;
+    color: var(--color-black);
     float: right;
     font-size: 50px;
     font-weight: bold;
@@ -141,7 +149,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: $white;
+  background: var(--color-white);
   z-index: 999;
   opacity: 1;
   visibility: visible;
@@ -178,7 +186,8 @@
   align-items: center;
   margin: 1px;
   border: 10px solid transparent;
-  border-color: var(--color-grey) transparent transparent var(--color-grey);
+  border-color: var(--color-light-grey) transparent transparent
+    var(--color-light-grey);
   border-radius: 50%;
   animation: thing 5s cubic-bezier(0.35, -0.14, 0.79, 1.22) infinite;
 }

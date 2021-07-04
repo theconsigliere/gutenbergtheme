@@ -10,7 +10,8 @@ export default class Header extends Component {
                 mobileMenu: '.mobile-sidebar',
                 pageBackground : '.page-cover',
                 page : '.page-in-full',
-                fullScreenNav : ".fullscreen-nav-js"
+                fullScreenNav : ".fullscreen-nav-js",
+                revealActive: ".header__activate"
             }
         })
 
@@ -62,7 +63,8 @@ export default class Header extends Component {
     scrolling () {
       // WHEN YOU SCROLL DOWN HIDE HEADER, REVEAL WHEN SCROLLING UP
 
-     // console.log(this.headerReveal)
+
+     if (this.elements.revealActive != null ) {
 
       this.currentScroll = window.pageYOffset;
 
@@ -88,23 +90,8 @@ export default class Header extends Component {
         this.element.classList.remove(this.scrollDown);
         this.element.classList.add(this.scrollUp);
       }
-
       this.lastScroll = this.currentScroll;
-
-
-
+     }
     }
-
-
-
-
-   
-
-
-
-
-
-
-
 
 }

@@ -1410,6 +1410,17 @@
 		"sC": 3,
 		"tS": 1
 		},
+	"/src/js/Components/Modal.js": {
+		"bF": 4,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "/build/js/Components/Modal-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
+		},
 	"/src/js/Components/Preloader.js": {
 		"bF": 4,
 		"ft": 64,

@@ -16,7 +16,7 @@ textarea,
 select {
   appearance: none; // Removes awkward default styles on some inputs for iOS
   background-color: transparent;
-  border: 1px solid $color-primary;
+  border: 1px solid var(--color-black);
   border-radius: 0;
   box-shadow: none;
   box-sizing: inherit; // Forced to replace inherit values of the normalize.css
@@ -25,7 +25,7 @@ select {
   width: 100%;
 
   &:focus {
-    border-color: $color-primary;
+    border-color: var(--color-black);
     outline: 0;
   }
 }

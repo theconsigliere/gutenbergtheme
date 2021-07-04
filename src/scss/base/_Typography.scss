@@ -1,7 +1,6 @@
 // Typography
 // ––––––––––––––––––––––––––––––––––––––––––––––––––
 
-
 b,
 strong {
   font-weight: bold;
@@ -9,7 +8,7 @@ strong {
 
 p {
   margin-top: 0;
-  color: $color-secondary;
+  color: var(--color-dark-grey);
 }
 
 h1,
@@ -21,7 +20,7 @@ h6,
 .page_item a {
   margin-bottom: 1rem;
   margin-top: 0;
-  color: $black;
+  color: var(--color-black);
   line-height: 1.2;
 
   @media (min-width: #{$screen-sm}) {
@@ -195,8 +194,6 @@ li {
   letter-spacing: 3px;
 }
 
-
 // p {
 //   width: clamp (45ch, 50%, 75ch );
 // }
-
